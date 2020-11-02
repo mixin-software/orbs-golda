@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/orbs-golda/precache-manifest.3d53948a3659db137bc4620a15af13f0.js"
+  "/orbs-golda/precache-manifest.9ed007ee3bc8fe1bc7169b84351cca2c.js"
 );
 
 self.addEventListener('message', (event) => {
