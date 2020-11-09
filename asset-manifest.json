@@ -1,23 +1,24 @@
 {
   "files": {
-    "main.css": "/orbs-golda/static/css/main.2dbd560c.chunk.css",
-    "main.js": "/orbs-golda/static/js/main.808f0b37.chunk.js",
-    "main.js.map": "/orbs-golda/static/js/main.808f0b37.chunk.js.map",
+    "main.css": "/orbs-golda/static/css/main.95578a77.chunk.css",
+    "main.js": "/orbs-golda/static/js/main.af1a2b4f.chunk.js",
+    "main.js.map": "/orbs-golda/static/js/main.af1a2b4f.chunk.js.map",
     "runtime-main.js": "/orbs-golda/static/js/runtime-main.d38e3d6f.js",
     "runtime-main.js.map": "/orbs-golda/static/js/runtime-main.d38e3d6f.js.map",
-    "static/js/2.7f2a5e89.chunk.js": "/orbs-golda/static/js/2.7f2a5e89.chunk.js",
-    "static/js/2.7f2a5e89.chunk.js.map": "/orbs-golda/static/js/2.7f2a5e89.chunk.js.map",
+    "static/js/2.ac9e3369.chunk.js": "/orbs-golda/static/js/2.ac9e3369.chunk.js",
+    "static/js/2.ac9e3369.chunk.js.map": "/orbs-golda/static/js/2.ac9e3369.chunk.js.map",
     "index.html": "/orbs-golda/index.html",
-    "precache-manifest.7ec6b135fcbaf196b752043c129b6957.js": "/orbs-golda/precache-manifest.7ec6b135fcbaf196b752043c129b6957.js",
+    "precache-manifest.2ab7bb1130381fa184d933e2d603d0e5.js": "/orbs-golda/precache-manifest.2ab7bb1130381fa184d933e2d603d0e5.js",
     "service-worker.js": "/orbs-golda/service-worker.js",
-    "static/css/main.2dbd560c.chunk.css.map": "/orbs-golda/static/css/main.2dbd560c.chunk.css.map",
-    "static/js/2.7f2a5e89.chunk.js.LICENSE.txt": "/orbs-golda/static/js/2.7f2a5e89.chunk.js.LICENSE.txt",
+    "static/css/main.95578a77.chunk.css.map": "/orbs-golda/static/css/main.95578a77.chunk.css.map",
+    "static/js/2.ac9e3369.chunk.js.LICENSE.txt": "/orbs-golda/static/js/2.ac9e3369.chunk.js.LICENSE.txt",
     "static/media/coins.svg": "/orbs-golda/static/media/coins.c698f8c2.svg",
     "static/media/copy.svg": "/orbs-golda/static/media/copy.5ae6ccfe.svg",
     "static/media/cpu.svg": "/orbs-golda/static/media/cpu.3ee6411f.svg",
     "static/media/delegators-selected.svg": "/orbs-golda/static/media/delegators-selected.fe49925e.svg",
     "static/media/delegators.svg": "/orbs-golda/static/media/delegators.091557cd.svg",
     "static/media/encrypted.svg": "/orbs-golda/static/media/encrypted.fc6fbf16.svg",
+    "static/media/france.svg": "/orbs-golda/static/media/france.78126112.svg",
     "static/media/getFetch.cjs": "/orbs-golda/static/media/getFetch.013f0b90.cjs",
     "static/media/guardians-selected.svg": "/orbs-golda/static/media/guardians-selected.e200a932.svg",
     "static/media/guardians.svg": "/orbs-golda/static/media/guardians.95190aa2.svg",
@@ -28,12 +29,13 @@
     "static/media/stellar.svg": "/orbs-golda/static/media/stellar.7cf558ab.svg",
     "static/media/token.png": "/orbs-golda/static/media/token.51d4bc2c.png",
     "static/media/trophy.svg": "/orbs-golda/static/media/trophy.4cda8b81.svg",
+    "static/media/usa.svg": "/orbs-golda/static/media/usa.a035edad.svg",
     "static/media/voting-booth.svg": "/orbs-golda/static/media/voting-booth.bac02ede.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.d38e3d6f.js",
-    "static/js/2.7f2a5e89.chunk.js",
-    "static/css/main.2dbd560c.chunk.css",
-    "static/js/main.808f0b37.chunk.js"
+    "static/js/2.ac9e3369.chunk.js",
+    "static/css/main.95578a77.chunk.css",
+    "static/js/main.af1a2b4f.chunk.js"
   ]
 }
