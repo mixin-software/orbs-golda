@@ -11,7 +11,7 @@ import {
     generateWeeks,
     returnDateNumber
 } from './dates';
-import { sortByDate } from './array';
+import { dateCompare, sortByDate } from './array';
 import { STACK_GRAPH_MONTHS_LIMIT } from '../global/variables';
 import { convertToString } from './number';
 export const generateDelegatorsRoutes = (t: TFunction, delegator?: Delegator): MenuOption[] => {
@@ -41,33 +41,33 @@ export const checkIfLoadDeligator = (address?: string, delegator?: Delegator): b
     if (delegator.address.toLowerCase() === address.toLowerCase()) return false;
     return true;
 };
-const fillDelegatorsChartData = (dates: any, unit: ChartUnit) => {
-    let arr: ChartDatasetObject[] = [];
-    Object.keys(dates).forEach((key: string) => {
-        const date = converFromNumberToDateMilliseconds(Number(key), unit);
-        const datasetObject = {
-            x: date,
+const fillDelegatorsChartData = (dates: Date[]) => {
+    return dates.map((date) => {
+        return {
+            x: moment(date).valueOf(),
             y: null
         };
-        arr.push(datasetObject);
     });
-    return arr;
 };
-export const getDelegatorChartData = (dates: any, unit: ChartUnit, delegator: Delegator): ChartData => {
-    const { stake_slices } = delegator;
-    let arr = fillDelegatorsChartData(dates, unit);
-    stake_slices.map((slice: DelegatorStake) => {
-        const { block_time, stake } = slice;
-        const date = returnDateNumber(block_time, unit);
-        if (!dates.hasOwnProperty(date)) return;
-        const datasetObject = {
-            x: moment.unix(block_time).valueOf(),
-            y: stake
-        };
-        arr.push(datasetObject);
-    });
+export const getDelegatorChartData = (
+    minDate: Date,
+    dates: Date[],
+    unit: ChartUnit,
+    { stake_slices }: Delegator
+): ChartData => {
+    const moMinDate = moment(minDate);
+    let emptydataPoints = fillDelegatorsChartData(dates);
+    const points = stake_slices
+        .filter((s) => moment.unix(s.block_time) >= moMinDate)
+        .map((m) => {
+            return {
+                x: moment.unix(m.block_time).valueOf(),
+                y: m.stake
+            };
+        });
+    // .sort(dateCompare)
     const dataset = {
-        data: sortByDate(arr),
+        data: [...emptydataPoints, ...points],
         color: ChartColors.TOTAL_STAKE,
         yAxis: ChartYaxis.Y1
     };
@@ -77,14 +77,35 @@ export const getDelegatorChartData = (dates: any, unit: ChartUnit, delegator: De
     };
 };
 
+// export const getDelegatorChartData1 = (dates: any, unit: ChartUnit, { stake_slices }: Delegator): ChartData => {
+//     let arr = fillDelegatorsChartData(dates);
+//     stake_slices.map((slice: DelegatorStake) => {
+//         const { block_time, stake } = slice;
+//         const date = returnDateNumber(block_time, unit);
+//         if (!dates.hasOwnProperty(date)) return;
+//         const datasetObject = {
+//             x: moment.unix(block_time).valueOf(),
+//             y: stake
+//         };
+//         arr.push(datasetObject);
+//     });
+//     const dataset = {
+//         data: sortByDate(arr),
+//         color: ChartColors.TOTAL_STAKE,
+//         yAxis: ChartYaxis.Y1
+//     };
+//     return {
+//         datasets: [dataset],
+//         unit
+//     };
+// };
+
 export const generateDelegatorsActionColors = (event: DelegatorActionsTypes) => {
     switch (event) {
         case DelegatorActionsTypes.STAKED:
-            return 'green';
         case DelegatorActionsTypes.RESTAKED:
             return 'green';
         case DelegatorActionsTypes.UNSTAKED:
-            return 'red';
         case DelegatorActionsTypes.WITHDREW:
             return 'red';
         case DelegatorActionsTypes.CLAIMED:
@@ -97,11 +118,8 @@ export const generateDelegatorsActionColors = (event: DelegatorActionsTypes) => 
 export const generateDelegatorsCurrentStake = (event: DelegatorActionsTypes, currentStake?: number) => {
     switch (event) {
         case DelegatorActionsTypes.STAKED:
-            return convertToString(currentStake, '0');
         case DelegatorActionsTypes.RESTAKED:
-            return convertToString(currentStake, '0');
         case DelegatorActionsTypes.UNSTAKED:
-            return convertToString(currentStake, '0');
         case DelegatorActionsTypes.WITHDREW:
             return convertToString(currentStake, '0');
         default:
@@ -109,26 +127,30 @@ export const generateDelegatorsCurrentStake = (event: DelegatorActionsTypes, cur
     }
 };
 
-export const generateDelegatorChartData = (type: ChartUnit, selectedDelegator?: Delegator): ChartData | undefined => {
+export const generateDelegatorChartData = (unit: ChartUnit, selectedDelegator?: Delegator): ChartData | undefined => {
     if (!selectedDelegator) return;
-    let data;
-    switch (type) {
+    let dates, minDate;
+    let now = moment();
+    switch (unit) {
         case ChartUnit.MONTH:
-            const months = generateMonths(STACK_GRAPH_MONTHS_LIMIT);
-            data = getDelegatorChartData(months, ChartUnit.MONTH, selectedDelegator);
+            minDate = now.subtract(STACK_GRAPH_MONTHS_LIMIT, 'month');
+            dates = generateMonths(STACK_GRAPH_MONTHS_LIMIT);
             break;
         case ChartUnit.WEEK:
-            const weeks = generateWeeks(STACK_GRAPH_MONTHS_LIMIT);
-            data = getDelegatorChartData(weeks, ChartUnit.WEEK, selectedDelegator);
+            minDate = now.subtract(STACK_GRAPH_MONTHS_LIMIT, 'weeks');
+            dates = generateWeeks(STACK_GRAPH_MONTHS_LIMIT);
             break;
         case ChartUnit.DAY:
-            const days = generateDays(STACK_GRAPH_MONTHS_LIMIT);
-            data = getDelegatorChartData(days, ChartUnit.DAY, selectedDelegator);
+            minDate = now.subtract(STACK_GRAPH_MONTHS_LIMIT, 'days');
+            dates = generateDays(STACK_GRAPH_MONTHS_LIMIT);
             break;
         default:
+            minDate = now.subtract(STACK_GRAPH_MONTHS_LIMIT, 'week');
+            dates = generateWeeks(STACK_GRAPH_MONTHS_LIMIT);
             break;
     }
-    return data;
+    if (!dates) return;
+    return getDelegatorChartData(minDate.toDate(), dates, unit, selectedDelegator);
 };
 
 export const getDelegatorRewardActions = (actions?: DelegatorAction[]) => {

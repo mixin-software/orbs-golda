@@ -1,4 +1,7 @@
-export const STACK_GRAPH_MONTHS_LIMIT = 11;
+export const STACK_GRAPH_MONTHS_LIMIT = 10;
+export const GRAPH_MONTH_FORMAT = 'YYYY-MM';
+export const GRAPH_WEEK_FORMAT = 'GGGG-[W]WW';
+export const GRAPH_DAY_FORMAT = 'YYYY-MM-DD';
 export const DATE_FORMAT = 'DD/MM/YYYY';
 export const TIME_UNIT_FORMAT = 'DD MMM';
 export const OVERVIEW_CHART_LIMIT = 8;

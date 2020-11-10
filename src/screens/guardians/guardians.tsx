@@ -1,4 +1,4 @@
-import React  from 'react';
+import React, { useEffect }  from 'react';
 import { Route } from 'react-router-dom';
 import { routes } from '../../routes/routes';
 import { GuardianDelegators } from './sections/guardian-delegators/guardian-delegators';
@@ -11,6 +11,9 @@ import { GuardianTop } from './components/guardian-top/guardian-top';
 
 const GuardiansComponent = () => {
   
+
+ 
+
     return (
         <div className="guardians screen">
            <GuardianTop />

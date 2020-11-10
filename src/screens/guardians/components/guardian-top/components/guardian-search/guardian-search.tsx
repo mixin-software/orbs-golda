@@ -15,6 +15,8 @@ import './guardian-search.scss';
 
 export const GuardianSearch = () => {
     const { guardians, selectedGuardian } = useSelector((state: AppState) => state.guardians);
+  
+
     const dispatch = useDispatch();
     const history: any = useHistory();
     const { t } = useTranslation();
@@ -25,8 +27,11 @@ export const GuardianSearch = () => {
     useEffect(() => {
         const { address } = params;
         searchGuardianByAddress(address);
+        
+    
     }, []);
 
+ 
     useEffect(() => {
         const { address } = params;
         setGuardianNameAsValue(address);

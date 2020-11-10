@@ -1,32 +1,19 @@
 import { Console } from 'console';
-import moment from 'moment';
+import moment, { unitOfTime } from 'moment';
 import { ChartUnit } from '../global/enums';
 
-export const generateMonths = (limit: number) => {
-    let dates: any = {};
-    for (let i = 0; i < limit; i++) {
-        const month = moment().subtract(i, 'month').month();
-        dates[month] = [];
+export const generateMonths = (limit: number): Date[] => generateDates('month', limit);
+export const generateWeeks = (limit: number): Date[] => generateDates('week', limit);
+export const generateDays = (limit: number): Date[] => generateDates('day', limit);
+
+const generateDates = (momentUnits: unitOfTime.DurationConstructor, limit: number): Date[] => {
+    let dates: Date[] = [];
+    dates.push(new Date());
+    for (let i = 0; i <= limit; i++) {
+        console.log('zibi', { momentUnits, z: moment().subtract(i, momentUnits).toDate() });
+        dates.push(moment().subtract(i, momentUnits).toDate());
     }
     return dates;
-};
-
-export const generateWeeks = (limit: number) => {
-    let weeks: any = {};
-    for (let i = 0; i < limit; i++) {
-        const week = moment().subtract(i, 'week').week();
-        weeks[week] = [];
-    }
-    return weeks;
-};
-
-export const generateDays = (limit: number) => {
-    let days: any = {};
-    for (let i = 0; i < limit; i++) {
-        const day = moment().subtract(i, 'day').dayOfYear();
-        days[day] = [];
-    }
-    return days;
 };
 
 export const getDayNumberFromUnixDate = (date: number): number => {

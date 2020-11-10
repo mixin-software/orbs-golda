@@ -3,10 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { SupportedLanguage } from '../../../../global/types';
 import { api } from '../../../../services/api';
 import { flags } from '../../../../ui/country-flags';
-const { FlagIcon } = require('react-flag-kit');
+
 export const Languages = () => {
-    const { t, i18n } = useTranslation();
-    const [supportedlanguages, setSupportedLanguages] = useState<undefined | SupportedLanguage>(undefined);
+    const { i18n } = useTranslation();
+    const [supportedlanguages, setSupportedLanguages] = useState<undefined | { [id: string]: SupportedLanguage }>(
+        undefined
+    );
 
     useEffect(() => {
         getLanguages();
@@ -14,19 +16,19 @@ export const Languages = () => {
 
     const getLanguages = async () => {
         const res = await api.getSupportedlanguages();
-        console.log(res)
         if (!res) return;
         setSupportedLanguages(res);
     };
 
-    const generateSupportedlanguages = (languages?: SupportedLanguage) => {
+    const generateSupportedlanguages = (languages?: { [id: string]: SupportedLanguage }) => {
         if (!languages) return;
         return Object.keys(languages).map(function (key: string, index: number) {
             const flagsObject: any = flags;
             const src = flagsObject[key];
+            const name = languages[key].name;
             return (
                 <li key={index} onClick={() => changeLang(key)}>
-                    <img src={src} alt="" />
+                    <img src={src} alt={name} />
                 </li>
             );
         });

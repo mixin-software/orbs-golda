@@ -42,7 +42,7 @@ class Api {
         }
     }
 
-    async getSupportedlanguages(): Promise<SupportedLanguage | null> {
+    async getSupportedlanguages(): Promise<{ [id: string]: SupportedLanguage } | null> {
         try {
             const res = await axios.get(`${LOCAIZE_API}/languages/${LOCAIZE_PROJECT_ID}`);
             return res.data;

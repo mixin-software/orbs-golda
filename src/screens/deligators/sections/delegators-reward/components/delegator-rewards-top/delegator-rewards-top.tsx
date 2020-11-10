@@ -18,19 +18,47 @@ export const DelegatorRewardsTop = () => {
         t('main.alreadyClaimed'),
         `${t('main.totalClaimed')} (${t('main.untilNow')})`
     ];
-    const noData =  !selectedDelegator && !delegatorIsLoading
-    return (
-        noData ?  <NoData /> :  <div className="delegator-rewards-top">
-           <RewardTitles titles={titles} isLoading={delegatorIsLoading} listElementAmount={4} />
+    const noData = !selectedDelegator && !delegatorIsLoading;
+    return noData ? (
+        <NoData />
+    ) : (
+        <div className="delegator-rewards-top">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Bla</th>
+                        <th>Bla 2</th>
+                        <th>ZB Balibi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>a</td>
+                        <td>Bla</td>
+                        <td>Bla 2</td>
+                        <td>ZB Balibi</td>
+                    </tr>
+                    <tr>
+                        <td>a</td>
+                        <td>Bla</td>
+                        <td>Bla 2</td>
+                        <td>ZB Balibi</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <RewardTitles titles={titles} isLoading={delegatorIsLoading} listElementAmount={4} />
             <div className="delegator-rewards-top-details">
-            <Reward
-                        current={selectedDelegator?.rewards_balance}
-                        claimed={selectedDelegator?.rewards_claimed}
-                        img={TrophyImg}
-                        token = {Logo}
-                        title={t('main.rewards')}
-                        isLoading = { delegatorIsLoading}
-                    />
+                <Reward
+                    current={selectedDelegator?.rewards_balance}
+                    claimed={selectedDelegator?.rewards_claimed}
+                    img={TrophyImg}
+                    token={Logo}
+                    title={t('main.rewards')}
+                    isLoading={delegatorIsLoading}
+                />
             </div>
         </div>
     );

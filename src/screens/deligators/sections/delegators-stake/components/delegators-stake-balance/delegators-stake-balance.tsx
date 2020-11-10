@@ -7,18 +7,10 @@ import { AppState } from '../../../../../../redux/types/types';
 import { getGuardianByAddress } from '../../../../../../utils/guardians';
 import { convertToString } from '../../../../../../utils/number';
 import { routeToGuardian } from '../../../../../../utils/routing';
-import TokenImg from '../../../../../../assets/images/token.png';
 import { useTranslation } from 'react-i18next';
 import './delegators-stake-balance.scss';
 import { BalanceSection } from '../../../../../../components/balance-section/balance-section';
 import { NoData } from '../../../../../../components/no-data/no-data';
-
-interface StateProps {
-    isLoading: boolean;
-    text: string;
-    data: string | number;
-}
-
 
 
 export const DelegatorsStakeBalance = () => {
@@ -28,7 +20,7 @@ export const DelegatorsStakeBalance = () => {
     const delegatedTo = getGuardianByAddress(guardians, selectedDelegator?.delegated_to)?.name;
     const noData  = !selectedDelegator && !delegatorIsLoading
     return (
-        noData ? <NoData /> : <section className="delegators-stake-balance flex-start">
+        noData ? <NoData  /> : <section className="delegators-stake-balance flex-start">
             <BalanceSection
                 data={convertToString(selectedDelegator?.total_stake)}
                 isLoading={delegatorIsLoading}
@@ -46,7 +38,7 @@ export const DelegatorsStakeBalance = () => {
             />
             <div className="delegators-stake-balance-section flex-column text-overflow">
                 <h4>{t('delegators.delegatedTo')}</h4>
-                <LoadingComponent loaderType={LoaderType.TEXT} isLoading={delegatorIsLoading}>
+                <LoadingComponent loaderType={LoaderType.TEXT} isLoading={delegatorIsLoading} >
                   {delegatedTo ?   <Link to={routeToGuardian(selectedDelegator?.delegated_to)}>
                         <p className="text-overflow delegators-stake-balance-to">{delegatedTo}</p>
                         <p className="text-overflow delegators-stake-balance-address">
