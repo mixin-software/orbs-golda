@@ -6,9 +6,9 @@ import Logo from '../../assets/images/navbar-logo.svg';
 import { NavigationLink, RouteParams, SupportedLanguage } from '../../global/types';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../redux/types/types';
-import { Languages } from './components/languages/Languages';
 
 import './navigation-menu.scss';
+import { Languages } from './components/languages/Languages';
 
 export const NavigationMenu: Component<any> = () => {
     const { t } = useTranslation();

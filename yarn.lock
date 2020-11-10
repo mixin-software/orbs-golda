@@ -1608,10 +1608,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@orbs-network/pos-analytics-lib@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@orbs-network/pos-analytics-lib/-/pos-analytics-lib-0.5.0.tgz#6ab1305ac0c1b8237f6a47a2987503d9cd5af75c"
-  integrity sha512-cmuHvuXaVyXdIV2nwdfB/HPwS9L3lFuUB+/AefNaDtAwUzbJ7muY6acNJAoF9QjGYd8o/UhnM5PuTJDBcFThaw==
+"@orbs-network/pos-analytics-lib@^0.6.1":
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/@orbs-network/pos-analytics-lib/-/pos-analytics-lib-0.6.1.tgz#aee71734ce8beeff4efccde6c1882badafa8c7f0"
+  integrity sha512-NLMJaAOfSnmmi2i234iuHijIZMUBM3ls6oghFFaqozCFgxSn7yPdrfdDTZWa+ghSbW6EP0RXhBc52u6p5aT2rA==
   dependencies:
     "@makerdao/multicall" "0.11.0"
     bignumber.js "^9.0.0"
