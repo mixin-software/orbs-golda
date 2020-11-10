@@ -30,8 +30,12 @@
 
     .line-chart-text {
         position: absolute;
+        height: 100%;
         p{
             font-size: 13px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-height: 45%;
         }
         small{
             margin-top: 5px;

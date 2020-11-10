@@ -11,13 +11,15 @@ import { LoaderType } from '../../../../global/enums';
 import './overview-guardians.scss';
 import { useTranslation } from 'react-i18next';
 import { PosOverview } from '@orbs-network/pos-analytics-lib';
+import { sortByNumber } from '../../../../utils/array';
 
 const listToRender = (overviewData?: PosOverview) => {
     if (!overviewData) return null;
     if (!overviewData.slices) return null;
     if (!overviewData.slices[0]) return null;
     if (!overviewData.slices[0].data) return null;
-    return overviewData.slices[0].data;
+    const data = sortByNumber(overviewData.slices[0].data, 'effective_stake')
+    return data
 };
 
 export const OverviewStakeGuadians = () => {

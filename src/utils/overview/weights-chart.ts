@@ -35,27 +35,17 @@ const filledEmptyData = (data: any) => {
     });
 };
 
-const countTotalWeight = (data: PosOverviewData[]): number => {
-    let count = 0;
-    data.forEach((g: PosOverviewData) => {
-        const { weight } = g;
-        count += weight;
-    });
-    return count;
-};
-
 const insertGuardiansByDate = (slices: PosOverviewSlice[], unit: ChartUnit, dates: any, order: any) => {
     const datesInUse: any = [];
-    slices.forEach(({ block_time, data }: PosOverviewSlice) => {
+    slices.forEach(({ block_time, data, total_weight }: PosOverviewSlice) => {
         const sliceDate = returnDateNumber(block_time, unit);
         if (!sliceDate) return;
         if (!dates.hasOwnProperty(sliceDate)) return;
         if (datesInUse.includes(sliceDate)) return;
         datesInUse.push(sliceDate);
         const dateInString = converFromNumberToDate(sliceDate, unit, DATE_FORMAT);
-        const totalWeight = countTotalWeight(data);
         data.forEach(({ address, weight }: PosOverviewData, i: number) => {
-            const percent = (weight / totalWeight) * 100;
+            const percent = (weight / total_weight) * 100;
 
             const guardianObject = {
                 x: dateInString,
