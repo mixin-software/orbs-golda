@@ -148,6 +148,7 @@ export const getBarChartConfigOptions = (
                     ticks: {
                         callback: function (value: any, index: any, values: any) {
                             const date = values[index].value;
+                            console.log(value);
                             return [moment(date).format('DD MMM'), moment(date).format('YYYY')];
                         },
                         padding: 10,

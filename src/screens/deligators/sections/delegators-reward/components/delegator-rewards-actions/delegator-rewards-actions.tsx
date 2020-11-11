@@ -1,14 +1,15 @@
-import { DelegatorAction, DelegatorReward } from '@orbs-network/pos-analytics-lib';
+import { DelegatorAction, DelegatorReward, GuardianAction } from '@orbs-network/pos-analytics-lib';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { NoData } from '../../../../../../components/no-data/no-data';
 import { AppState } from '../../../../../../redux/types/types';
 import moment from 'moment';
-import './delegator-rewards-actions.scss';
-import { List } from '../../../../../../components/list/list';
 import { useTranslation } from 'react-i18next';
 import { DelegatorRewardAction } from './components/delegator-reward-actions/delegator-reward-action';
 import { getDelegatorRewardActions } from '../../../../../../utils/delegators';
+import { LoadingComponent } from '../../../../../../components/loading-component/loading-component';
+import { ListMaterial } from '../../../../../../components/list/list-material';
+import { LoaderType } from '../../../../../../global/enums';
+import './delegator-rewards-actions.scss';
 
 export const DelegatorRewardsActions = () => {
     const { selectedDelegator, delegatorIsLoading } = useSelector((state: AppState) => state.delegator);
@@ -21,17 +22,20 @@ export const DelegatorRewardsActions = () => {
     ];
     return !selectedDelegator && !delegatorIsLoading ? null : (
         <div className="delegators-rewards-actions">
-            <List loadersAmount={4} isLoading={delegatorIsLoading} titles={titles}>
-                {selectedDelegator ? (
-                    <div>
-                        {getDelegatorRewardActions(selectedDelegator.actions).map((action: DelegatorAction, key: number) => {
-                            return <DelegatorRewardAction action={action} key={key} />;
-                        })}
-                    </div>
-                ) : (
-                    <NoData />
-                )}
-            </List>
+            <LoadingComponent
+                isLoading={delegatorIsLoading}
+                listElementAmount={4}
+                loaderType={LoaderType.LIST}
+                listLength={3}>
+                <ListMaterial titles={titles} titleClassName="list-titles" listHeaderBg="#F7F7F7" listClassName='reward-list'>
+                    {selectedDelegator &&
+                        getDelegatorRewardActions(selectedDelegator.actions).map(
+                            (action: DelegatorAction, key: number) => {
+                                return <DelegatorRewardAction action={action} key={key} />;
+                            }
+                        )}
+                </ListMaterial>
+            </LoadingComponent>
         </div>
     );
 };

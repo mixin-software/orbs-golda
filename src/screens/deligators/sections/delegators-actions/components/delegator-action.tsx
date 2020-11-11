@@ -9,6 +9,7 @@ import { ETHERSCAN_BLOCK_ADDRESS } from '../../../../../keys/keys';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 import { DelegatorActionsTypes } from '../../../../../global/enums';
+import { TableCell, TableRow } from '@material-ui/core';
 
 interface StateProps {
     action: DelegatorAction;
@@ -46,21 +47,30 @@ export const DelegatorActionElement = ({ action }: StateProps) => {
     };
     const color = generateDelegatorsActionColors(event as DelegatorActionsTypes);
     const currentStake = generateDelegatorsCurrentStake(event as DelegatorActionsTypes, current_stake);
+
     return (
-        <li className="flex-start-center">
-            {generateAction()}
-            <p className="list-item" style={{ color }}>
-                {convertToString(amount, '-')}
-            </p>
-            <p className="list-item">{currentStake}</p>
-            <a
-                href={`${ETHERSCAN_BLOCK_ADDRESS}/${block_number}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="list-item">
-                <p>{block_number}</p>
-            </a>
-            <p className="list-item">{moment.unix(block_time).format('YYYY-MM-DD HH:mm')}</p>
-        </li>
+        <TableRow>
+            <TableCell>{generateAction()}</TableCell>
+            <TableCell>
+                <p className="list-item" style={{ color }}>
+                    {convertToString(amount, '-')}
+                </p>
+            </TableCell>
+            <TableCell>
+                <p className="list-item">{currentStake}</p>
+            </TableCell>
+            <TableCell>
+                <a
+                    href={`${ETHERSCAN_BLOCK_ADDRESS}/${block_number}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="list-item">
+                    <p>{block_number}</p>
+                </a>
+            </TableCell>
+            <TableCell>
+                <p className="list-item">{moment.unix(block_time).format('YYYY-MM-DD HH:mm')}</p>
+            </TableCell>
+        </TableRow>
     );
 };

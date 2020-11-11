@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { SupportedLanguage } from '../../../../global/types';
 import { api } from '../../../../services/api';
 import { flags } from '../../../../ui/country-flags';
+import Logo from '../../../../assets/images/logo orbs.svg';
 
 export const Languages = () => {
     const { i18n } = useTranslation();
@@ -38,5 +39,12 @@ export const Languages = () => {
         i18n.changeLanguage(lang);
     };
 
-    return <ul className="navigation-languages flex-start">{generateSupportedlanguages(supportedlanguages)}</ul>;
+    return <div className="navigation-languages flex-column">
+        <figure className='navigation-languages-logo'>
+            <img src={Logo} alt="orbs logo"/>
+        </figure>
+        <ul className='flex-start'>
+        {generateSupportedlanguages(supportedlanguages)}
+        </ul>
+    </div>;
 };

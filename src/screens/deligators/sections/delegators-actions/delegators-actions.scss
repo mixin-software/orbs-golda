@@ -1,12 +1,6 @@
 .delegators-actions {
     height: 100%;
-    .list {
-     
-        &-item {
-            max-width: 230px;
-            width: calc(100% / 5);
-        }
-    }
+
     .loader-list {
         &-element {
             div {

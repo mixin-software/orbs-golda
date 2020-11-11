@@ -1,8 +1,8 @@
 .delegator-stake-chart {
     width: 100%;
-    height: calc(100% - 170px);
+    height: calc(100% - 100px);
     position: relative;
-    margin-top: 20px;
+    padding-top: 30px;
     .loader-big {
         width: 100%;
         height: 100%;
@@ -11,16 +11,17 @@
     }
 
     .line-chart {
-        height: calc(100% - 60px);
+        height: calc(100% - 70px);
         width: 100%;
     }
 
     header {
-        margin-bottom: 30px;
+       height: 70px;
         text-transform: uppercase;
-
+        align-items: flex-start;
         h4 {
             font-weight: 600;
+            font-size: 21px;
         }
     }
 }

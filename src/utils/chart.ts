@@ -1,6 +1,6 @@
 import { TFunction } from 'i18next';
 import { ChartUnit, ChartYaxis } from '../global/enums';
-import { ChartData, ChartDataset } from '../global/types';
+import { ChartData, ChartDataset, ChartDatasetObject } from '../global/types';
 import { formatNumber } from './number';
 import moment from 'moment';
 import { TIME_UNIT_FORMAT } from '../global/variables';
@@ -9,6 +9,9 @@ export const getGuardiansLineChartSettings = (unit: ChartUnit, ref: any, t: TFun
     const settings = getLineChartBaseSettings(unit, ref, t);
     settings.layout.padding.left = 20;
     settings.layout.padding.right = 20;
+    settings.scales.yAxes[0].ticks.callback = function (value: number) {
+        return formatNumber(value, '0a').toUpperCase();
+    };
     const yAxis: any = {
         id: ChartYaxis.Y2,
         position: 'right',
@@ -170,8 +173,12 @@ const lineChartBaseStyle = {
     pointHitRadius: 5
 };
 
-export const generateDatasets = (chartData: ChartData) => {
-    return chartData.datasets.map((dataset: ChartDataset, index: number) => {
+export const chartDatasetObjectComparer = (a: ChartDatasetObject, b: ChartDatasetObject) => {
+    return a.x - b.x;
+};
+
+export const generateDatasets = ({ datasets }: ChartData) => {
+    return datasets.map((dataset: ChartDataset, index: number) => {
         const { color, yAxis, data } = dataset;
         const style = lineChartBaseStyle;
         style.label = `${index}`;

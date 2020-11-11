@@ -2,12 +2,14 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { AppState } from '../../../../redux/types/types';
 import moment from 'moment';
-import { List } from '../../../../components/list/list';
 import { DelegatorAction } from '@orbs-network/pos-analytics-lib';
 import { DelegatorActionElement } from './components/delegator-action';
 import { NoData } from '../../../../components/no-data/no-data';
-import './delegators-actions.scss';
 import { useTranslation } from 'react-i18next';
+import { ListMaterial } from '../../../../components/list/list-material';
+import { LoadingComponent } from '../../../../components/loading-component/loading-component';
+import { LoaderType } from '../../../../global/enums';
+import './delegators-actions.scss';
 
 export const DeligatorsActions = () => {
     const { selectedDelegator, delegatorIsLoading } = useSelector((state: AppState) => state.delegator);
@@ -25,14 +27,13 @@ export const DeligatorsActions = () => {
         <NoData />
     ) : (
         <div className="delegators-actions">
-            <List loadersAmount={5} isLoading={delegatorIsLoading} titles={titles}>
-                <>
-                    {selectedDelegator &&
-                        selectedDelegator.actions.map((action: DelegatorAction, key: number) => {
+              <LoadingComponent isLoading={delegatorIsLoading} listElementAmount={5} loaderType={LoaderType.LIST}>
+                <ListMaterial titles={titles} titleClassName="list-titles" listHeaderBg="#F7F7F7">
+                    {selectedDelegator && selectedDelegator.actions.map((action: DelegatorAction, key: number) => {
                             return <DelegatorActionElement action={action} key={key} />;
                         })}
-                </>
-            </List>
+                </ListMaterial>
+            </LoadingComponent>
         </div>
     );
 };

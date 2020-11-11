@@ -9,9 +9,8 @@ import CommitteeImg from '../../../../../../assets/images/voting-booth.svg';
 import FeesImg from '../../../../../../assets/images/coins.svg';
 import OrbsToken from '../../../../../../assets/images/token.png';
 import BoostrapToken from '../../../../../../assets/images/bootstrap-token.png';
-
+import { ListMaterial } from '../../../../../../components/list/list-material';
 import './guardian-rewards-top.scss';
-import { RewardTitles } from '../../../../../../components/reward-titles/reward-titles';
 
 export const GuardianRewardsTop = () => {
     const { selectedGuardian, guardianIsLoading } = useSelector((state: AppState) => state.guardians);
@@ -22,15 +21,13 @@ export const GuardianRewardsTop = () => {
         t('main.alreadyClaimed'),
         `${t('main.totalClaimed')} (${t('main.untilNow')})`
     ];
-    const noData = !guardianIsLoading && !selectedGuardian
+    const noData = !guardianIsLoading && !selectedGuardian;
     return noData ? (
         <NoData />
     ) : (
         <div className="guardian-rewards-top">
-            <RewardTitles titles={titles} isLoading={guardianIsLoading} listElementAmount={4} />
-
-            <div className="guardian-rewards-top-details">
-            <Reward
+            <ListMaterial titles={titles} titleClassName="reward-title" listClassName="rewards-list">
+                <Reward
                     current={selectedGuardian?.reward_status.guardian_rewards_balance}
                     claimed={selectedGuardian?.reward_status.guardian_rewards_claimed}
                     total={selectedGuardian?.reward_status.total_guardian_rewards}
@@ -66,7 +63,7 @@ export const GuardianRewardsTop = () => {
                     title={t('guardians.applicationFees')}
                     isLoading={guardianIsLoading}
                 />
-            </div>
+            </ListMaterial>
         </div>
     );
 };

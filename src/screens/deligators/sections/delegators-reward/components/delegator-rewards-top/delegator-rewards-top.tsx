@@ -6,8 +6,8 @@ import Logo from '../../../../../../assets/images/token.png';
 import { Reward } from '../../../../../../components/reward/reward';
 import { NoData } from '../../../../../../components/no-data/no-data';
 import TrophyImg from '../../../../../../assets/images/trophy.svg';
-import { RewardTitles } from '../../../../../../components/reward-titles/reward-titles';
 import './delegator-rewards-top.scss';
+import { ListMaterial } from '../../../../../../components/list/list-material';
 
 export const DelegatorRewardsTop = () => {
     const { selectedDelegator, delegatorIsLoading } = useSelector((state: AppState) => state.delegator);
@@ -23,34 +23,7 @@ export const DelegatorRewardsTop = () => {
         <NoData />
     ) : (
         <div className="delegator-rewards-top">
-
-            <table>
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Bla</th>
-                        <th>Bla 2</th>
-                        <th>ZB Balibi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>a</td>
-                        <td>Bla</td>
-                        <td>Bla 2</td>
-                        <td>ZB Balibi</td>
-                    </tr>
-                    <tr>
-                        <td>a</td>
-                        <td>Bla</td>
-                        <td>Bla 2</td>
-                        <td>ZB Balibi</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <RewardTitles titles={titles} isLoading={delegatorIsLoading} listElementAmount={4} />
-            <div className="delegator-rewards-top-details">
+            <ListMaterial titles={titles} titleClassName='reward-title' listClassName='rewards-list'>
                 <Reward
                     current={selectedDelegator?.rewards_balance}
                     claimed={selectedDelegator?.rewards_claimed}
@@ -59,7 +32,7 @@ export const DelegatorRewardsTop = () => {
                     title={t('main.rewards')}
                     isLoading={delegatorIsLoading}
                 />
-            </div>
+            </ListMaterial>
         </div>
     );
 };

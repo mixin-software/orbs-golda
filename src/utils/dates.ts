@@ -1,4 +1,3 @@
-import { Console } from 'console';
 import moment, { unitOfTime } from 'moment';
 import { ChartUnit } from '../global/enums';
 
@@ -8,9 +7,7 @@ export const generateDays = (limit: number): Date[] => generateDates('day', limi
 
 const generateDates = (momentUnits: unitOfTime.DurationConstructor, limit: number): Date[] => {
     let dates: Date[] = [];
-    dates.push(new Date());
     for (let i = 0; i <= limit; i++) {
-        console.log('zibi', { momentUnits, z: moment().subtract(i, momentUnits).toDate() });
         dates.push(moment().subtract(i, momentUnits).toDate());
     }
     return dates;

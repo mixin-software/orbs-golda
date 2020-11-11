@@ -4,9 +4,10 @@ import { ChartUnit, OverviewSections } from '../../global/enums';
 import { BarChartDataset, MenuOption, OverviewChartData, OverviewChartObject } from '../../global/types';
 import { routes } from '../../routes/routes';
 import { converFromNumberToDate, generateDays, generateMonths, generateWeeks, returnDateNumber } from '../dates';
-import { sortByDate, sortByNumber } from '../array';
+import { sortByNumber } from '../array';
 import { overviewguardiansColors } from '../../ui/colors';
 import { DATE_FORMAT, OVERVIEW_CHART_LIMIT } from '../../global/variables';
+import moment from 'moment';
 
 export const generateOverviewRoutes = (t: TFunction): MenuOption[] => {
     return [
@@ -38,18 +39,13 @@ export const getGuardianColor = (amount: number) => {
     }
     return arr;
 };
-
-const generateData = (dates: any, unit: ChartUnit) => {
-    if (!dates) return;
-    let data: any = [];
-    Object.keys(dates).map((key) => {
-        const obj = {
-            x: converFromNumberToDate(Number(key), unit, 'DD/MM/YYYY'),
-            y: 0
+const fillChartData = (dates: Date[]) => {
+    return dates.map((date) => {
+        return {
+            x: moment(date).valueOf(),
+            y: null
         };
-        data.push(obj);
     });
-    return data;
 };
 
 export const getGuardiansOrder = (
@@ -68,7 +64,7 @@ export const getGuardiansOrder = (
             order: index,
             backgroundColor: colors[index],
             label: guardian.name,
-            data: generateData(dates, unit),
+            data: fillChartData(dates),
             maxBarThickness: 30,
             hoverBackgroundColor: undefined
         };

@@ -3,36 +3,18 @@
 
     &-list {
         height: 100%;
-        .list-item {
-         width: 200px;
-            &:nth-child(1) {
-                width: 480px;
-                
-                padding-right: 40px;
-            }
-
-            img {
-                margin-left: auto;
-            }
-            &:hover{
-                text-decoration: underline;
+        a{
+            max-width: 440px;
+            img{
+           margin-left: auto;
+               
             }
         }
-
         .loader-list {
             &-element {
                 div {
                     width: 200px;
                     padding-right: 40px;
-
-                    &:nth-child(1) {
-                        width: 530px;
-
-                        .loader {
-                            width: 70%;
-                        }
-                    }
-
                     .loader {
                         height: 20px;
                         width: 100px;

@@ -1,22 +1,22 @@
 import { TFunction } from 'i18next';
 import { ChartData, GuardiansChartDatasets, MenuOption } from '../global/types';
 import { routes } from '../routes/routes';
-import { ChartColors, ChartUnit, ChartYaxis, GuardianActionsTypes, GuardiansSections } from '../global/enums';
-import { Guardian, GuardianAction, GuardianInfo, GuardianStake } from '@orbs-network/pos-analytics-lib';
 import {
-    converFromNumberToDateMilliseconds,
-    generateDays,
-    generateMonths,
-    generateWeeks,
-    returnDateNumber
-} from './dates';
+    ChartColors,
+    ChartUnit,
+    ChartYaxis,
+    GuardianActionsTypes,
+    GuardianChartName,
+    GuardiansSections
+} from '../global/enums';
+import { Guardian, GuardianAction, GuardianInfo, GuardianStake } from '@orbs-network/pos-analytics-lib';
+import { generateDays, generateMonths, generateWeeks } from './dates';
 import { STACK_GRAPH_MONTHS_LIMIT } from '../global/variables';
 import moment from 'moment';
 import DAItoken from '../assets/images/bootstrap-token.png';
 import { convertToString } from './number';
 
-export const generateGuardiansRoutes = (t: TFunction, guardian?: GuardianInfo): MenuOption[] => {
-    const address = guardian ? guardian.address : '';
+export const generateGuardiansRoutes = (t: TFunction, address: string): MenuOption[] => {
     return [
         {
             name: t('main.stake'),
@@ -47,19 +47,20 @@ export const checkIfLoadDelegator = (address?: string, selectedGuardianAddress?:
     return true;
 };
 
-const generateGuardianDatasets = (): GuardiansChartDatasets => {
+const generateDatasets = (dates: Date[]): GuardiansChartDatasets => {
+    const data = fillChartData(dates);
     return {
-        selfStake: {
-            data: [],
+        self_stake: {
+            data,
             color: ChartColors.SELF_STAKE,
             yAxis: ChartYaxis.Y2
         },
-        delegatedStake: {
+        delegated_stake: {
             data: [],
             color: ChartColors.TOTAL_STAKE,
             yAxis: ChartYaxis.Y2
         },
-        delegators: {
+        n_delegates: {
             data: [],
             color: ChartColors.DELEGATORS,
             yAxis: ChartYaxis.Y1
@@ -67,50 +68,29 @@ const generateGuardianDatasets = (): GuardiansChartDatasets => {
     };
 };
 
-const fillGuardiansChartData = (chartData: any, dates: any, unit: ChartUnit) => {
-    Object.keys(dates).forEach((key: string) => {
-        const date = converFromNumberToDateMilliseconds(Number(key), unit);
-        chartData = insertChartDataByType(chartData, date);
-    });
-    return chartData;
-};
-export const getGuardianChartData = (dates: any, unit: ChartUnit, guardian: GuardianInfo): ChartData => {
-    let chartData = generateGuardianDatasets();
-    const { stake_slices } = guardian;
+export const getGuardianChartData = (
+    minDate: Date,
+    dates: Date[],
+    unit: ChartUnit,
+    { stake_slices }: GuardianInfo
+): ChartData => {
+    const moMinDate = moment(minDate);
+    let datasets = generateDatasets(dates);
+    stake_slices
+        .filter((s) => moment.unix(s.block_time) >= moMinDate)
+        .sort((s1, s2) => (s1.block_time > s2.block_time ? 0 : s1.block_time > s2.block_time ? 1 : -1))
+        .forEach((m) => {
+            insertChartDataByType(datasets, m, moment.unix(m.block_time).valueOf());
+        });
 
-    stake_slices.map((slice: GuardianStake) => {
-        const { block_time, self_stake, delegated_stake, n_delegates } = slice;
-        const blockDateNumber = returnDateNumber(block_time, unit);
-        if (!dates.hasOwnProperty(blockDateNumber)) return;
-        const date = moment.unix(block_time).valueOf();
-        chartData = insertChartDataByType(chartData, date, self_stake, n_delegates, delegated_stake);
-    });
-    chartData = fillGuardiansChartData(chartData, dates, unit);
-    const formatted = formatGuardianChartData(chartData, unit);
-    return formatted;
-};
-
-export const formatGuardianChartData = (data: any, unit: ChartUnit) => {
-    let datasetsArr: any = [];
-    Object.keys(data).map(function (key) {
-        const dataset = data[key];
-        datasetsArr.push(dataset);
-    });
-
-    const obj = {
-        datasets: datasetsArr,
+    return {
+        datasets: [datasets.delegated_stake, datasets.n_delegates, datasets.self_stake],
         unit
     };
-    return obj;
 };
 
-const insertChartDataByType = (
-    chartData: any,
-    date: number,
-    self_stake?: number,
-    n_delegates?: number,
-    delegated_stake?: number
-): any => {
+const insertChartDataByType = (chartData: GuardiansChartDatasets, stake: GuardianStake, date: number): any => {
+    const { self_stake, n_delegates, delegated_stake } = stake;
     const x = date;
     const selftStake = {
         x,
@@ -124,30 +104,44 @@ const insertChartDataByType = (
         x,
         y: delegated_stake
     };
-    chartData.selfStake.data.push(selftStake);
-    chartData.delegators.data.push(delegators);
-    chartData.delegatedStake.data.push(delegatedStake);
-    return chartData;
+    chartData.self_stake.data.push(selftStake);
+    chartData.n_delegates.data.push(delegators);
+    chartData.delegated_stake.data.push(delegatedStake);
 };
 
-export const generateGuardiansChartData = (unit: ChartUnit, selectedGuardian?: GuardianInfo) => {
+const fillChartData = (dates: Date[]) => {
+    return dates.map((date) => {
+        return {
+            x: moment(date).valueOf(),
+            y: null
+        };
+    });
+};
+
+export const generateGuardiansChartData = (unit: ChartUnit, selectedGuardian?: GuardianInfo): ChartData | undefined => {
     if (!selectedGuardian) return;
-    let dates;
+    let dates, minDate;
+    let now = moment();
     switch (unit) {
         case ChartUnit.MONTH:
+            minDate = now.subtract(STACK_GRAPH_MONTHS_LIMIT, 'month');
             dates = generateMonths(STACK_GRAPH_MONTHS_LIMIT);
             break;
         case ChartUnit.WEEK:
+            minDate = now.subtract(STACK_GRAPH_MONTHS_LIMIT, 'weeks');
             dates = generateWeeks(STACK_GRAPH_MONTHS_LIMIT);
             break;
         case ChartUnit.DAY:
+            minDate = now.subtract(STACK_GRAPH_MONTHS_LIMIT, 'days');
             dates = generateDays(STACK_GRAPH_MONTHS_LIMIT);
             break;
         default:
+            minDate = now.subtract(STACK_GRAPH_MONTHS_LIMIT, 'week');
+            dates = generateWeeks(STACK_GRAPH_MONTHS_LIMIT);
             break;
     }
-    const data = getGuardianChartData(dates, unit, selectedGuardian);
-    return data;
+    if (!dates) return;
+    return getGuardianChartData(minDate.toDate(), dates, unit, selectedGuardian);
 };
 
 export const getGuardianByAddress = (guardians?: Guardian[], address?: string): Guardian | undefined => {
@@ -196,19 +190,14 @@ export const getGuardiansRewardActions = (actions?: GuardianAction[]) => {
 export const generateGuardiansActionColors = (type: GuardianActionsTypes) => {
     switch (type) {
         case GuardianActionsTypes.STAKED:
-            return 'green';
         case GuardianActionsTypes.RESTAKED:
             return 'green';
         case GuardianActionsTypes.UNSTAKED:
-            return 'red';
         case GuardianActionsTypes.WITHDREW:
             return 'red';
         case GuardianActionsTypes.CLAIM_GUARDIAN_REWARDS:
-            return 'black';
         case GuardianActionsTypes.DELEGATOR_STAKING_REWARDS_CLAIMED:
-            return 'black';
         case GuardianActionsTypes.BOOTSTRAP_REWARDS_WITHDREW:
-            return 'black';
         case GuardianActionsTypes.FEES_WITHDRAWN:
             return 'black';
         default:
@@ -219,11 +208,8 @@ export const generateGuardiansActionColors = (type: GuardianActionsTypes) => {
 export const generateGuardiansCurrentStake = (event: GuardianActionsTypes, currentStake?: number) => {
     switch (event) {
         case GuardianActionsTypes.STAKED:
-            return convertToString(currentStake, '0');
         case GuardianActionsTypes.RESTAKED:
-            return convertToString(currentStake, '0');
         case GuardianActionsTypes.UNSTAKED:
-            return convertToString(currentStake, '0');
         case GuardianActionsTypes.WITHDREW:
             return convertToString(currentStake, '0');
         default:

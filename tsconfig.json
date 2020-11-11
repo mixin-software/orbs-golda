@@ -1,5 +1,7 @@
 {
     "compilerOptions": {
+        "baseUrl": "./src",
+        "rootDir": "./src",
         "target": "es5",
         "lib": ["dom", "dom.iterable", "esnext"],
         "allowJs": true,
@@ -16,5 +18,8 @@
         "jsx": "react"
     },
     "exclude": ["node_modules"],
-    "include": ["src"]
+    "include": [
+        "./src/**/*.ts",
+        "./src/**/*.d.ts"
+    ]
 }

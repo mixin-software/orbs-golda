@@ -1,37 +1,28 @@
 @import '../../scss/colors/colors.scss';
+@import '../../scss/theme/foundation.scss';
+
 
 .list {
     height: 100%;
     overflow-x: hidden;
-    ul {
-        height: calc(100% - 50px);
-        overflow-y: auto;
-
-        li {
-            min-height: 40px;
-            border-bottom: 1px dashed $list-border-color;
-            padding: 10px 0px 10px 20px;
-
-            p {
-                font-weight: 500;
-                font-size: 15px;
-                color: $list-text-color;
-                white-space: nowrap;
-                overflow: hidden;
-                text-overflow: ellipsis;
-                padding-right: 20px;
-            }
-
-            a {
-                color: $list-text-color;
-
-                &:hover {
-                    text-decoration: underline;
-                }
-            }
+    .MuiTableCell-root{
+        border-bottom: 1px dashed $list-border-color;
+    }
+    .MuiTableCell-head{
+        border: none;
+    }
+    p{
+        color: $list-text-color;
+        font-family: $root-font;
+        font-weight: 500;
+        font-size: 14px;
+    }
+    a{
+        &:hover{
+            text-decoration: underline;
+            color: $list-text-color;
         }
     }
-
     &-item {
         img{
             width: 14px;
@@ -43,11 +34,12 @@
             position: relative;
             margin-top: 10px;
             width: 90%;
-
+            
             p {
 
                 font-size: 14px;
                 width: 90%;
+                max-width: 130px;
             }
 
             figure {
@@ -78,20 +70,48 @@
             }
         }
     }
-
-    &-header {
-        background: #F7F7F7;
-        padding-left: 20px;
-        height: 50px;
-
-        h3 {
-            font-size: 15px;
-            font-weight: 500;
+    .reward-title{
+        font-family: 'Montserrat';
+        font-weight: bold;
+        font-size: 18px;
+    }
+    .reward {
+    
+        .MuiTableCell-root{
+            border-bottom: 1px solid $list-border-color;
+       }
+        &-image {
+            width: 24px;
+            height: auto;
+            margin-right: 20px;
+            object-fit: contain;
+        }
+    
+        &-token {
+            width: 15px;
+            height: 15px;
+            object-fit: contain;
+            margin-left: 5px;
+        }
+    
+        &-text {
+            font-size: 24px;
             text-transform: capitalize;
-            color: $list-text-color;
+            font-family: 'Montserrat';
+    
+        }
+        &-name {
+            font-weight: bold;
+            font-size: 20px;
+        }
+    
+        &-total {
+            font-weight: bold;
+        }
+        .loader-text{
+            width: 50%;
+            height: 20px;
         }
     }
-
-
-
+ 
 }

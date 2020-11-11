@@ -84,3 +84,9 @@ export enum OverviewChartType {
     STAKE = 'STAKE',
     WEIGHTS = 'WEIGHTS'
 }
+
+export enum GuardianChartName {
+    SELF_STAKE = 'SELF_STAKE',
+    DELEGATED_STAKE = 'DELEGATED_STAKE',
+    DELEGATORS = 'DELEGATORS'
+}

@@ -13,21 +13,24 @@ import './overview-stake.scss';
 
 export const OverviewStake = () => {
     const dispatch = useDispatch();
-    const { overviewData, overviewStakeChartData, overviewDataLoding } = useSelector((state: AppState) => state.overview);
+    const { overviewData, overviewStakeChartData, overviewDataLoding } = useSelector(
+        (state: AppState) => state.overview
+    );
     const { guardians } = useSelector((state: AppState) => state.guardians);
     const { t } = useTranslation();
 
     useEffect(() => {
-        if (overviewStakeChartData) return;
-        selectChartData(ChartUnit.WEEK);
-    }, [overviewData]);
+        if (!overviewStakeChartData) {
+            selectChartData(ChartUnit.WEEK);
+        }
+    }, []);
 
     const selectChartData = (unit: ChartUnit) => {
-        if(!guardians) return
+        if (!guardians) return;
         const data = getStakeChartData(guardians, unit, overviewData);
         dispatch(setOverviewStakeChartData(data));
     };
-    const noData = !overviewData && !overviewDataLoding
+    const noData = !overviewData && !overviewDataLoding;
 
     return (
         <div className="overview-chart">
@@ -51,7 +54,7 @@ export const OverviewStake = () => {
                                 chartData={overviewStakeChartData}
                                 guardians={guardians}
                                 total={overviewData?.total_stake}
-                                chartType = {OverviewChartType.STAKE}
+                                chartType={OverviewChartType.STAKE}
                             />
                         </div>
                     )}

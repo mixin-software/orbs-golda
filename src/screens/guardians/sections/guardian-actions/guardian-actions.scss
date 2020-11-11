@@ -1,29 +1,16 @@
 .guardian-actions {
     height: 100%;
-    .list {
-     
-        &-item {
-            max-width: 280px;
-            width: calc(100% / 4);
-            &:nth-child(1){
-                min-width: 240px;
-            }
-        }
-    }
+
     .loader-list {
         &-element {
             div {
                 max-width: 280px;
                 width: calc(100% / 4);
-               
                 .loader {
                     height: 20px;
                     width: 100px;
                 }
                 
-            }
-            & > div:nth-child(1){
-                min-width: 240px;
             }
         }
     }

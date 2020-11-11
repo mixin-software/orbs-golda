@@ -2,16 +2,7 @@
 
 .delegators-rewards-actions{
 height: calc(100% - 107px);    
-    .list{
-        margin-top: 30px;
-        height: 100%;
-        &-item{
-            width: 200px;
-        }   
-        ul{
-            height: calc(100% - 80px);
-        }
-    }
+padding-top: 30px;
 
     .loader-list {
         &-element {

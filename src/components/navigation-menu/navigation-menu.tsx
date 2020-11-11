@@ -1,11 +1,9 @@
 import React, { FunctionComponent as Component, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, useParams } from 'react-router-dom';
-import { generateNavigationLinks } from '../../utils/navigation';
+import { generateNavigationLinks, navigationImagesSrcArr } from '../../utils/navigation';
 import Logo from '../../assets/images/navbar-logo.svg';
 import { NavigationLink, RouteParams } from '../../global/types';
-import { useSelector } from 'react-redux';
-import { AppState } from '../../redux/types/types';
 import { Languages } from './components/languages/Languages';
 
 import './navigation-menu.scss';
@@ -14,8 +12,6 @@ export const NavigationMenu: Component<any> = () => {
     const { t } = useTranslation();
 
     const [selectedSection, setSelectedSection] = useState<string | null>(null);
-    const { selectedDelegator } = useSelector((state: AppState) => state.delegator);
-    const { selectedGuardian } = useSelector((state: AppState) => state.guardians);
     const params: RouteParams = useParams();
 
     useEffect(() => {
@@ -23,13 +19,23 @@ export const NavigationMenu: Component<any> = () => {
         setSelectedSection(section);
     }, [params.section]);
 
+
+    useEffect(() => {
+       
+        navigationImagesSrcArr.forEach((src: string) => {
+            const image = new Image()
+            image.src = src
+        })
+      
+    }, [])
+
     return (
         <nav className="navigation flex-column">
             <img src={Logo} alt="" className="navigation-logo" />
             <h4 className="navigation-title">{t('navigation.orbsUniverse')}</h4>
             <h5 className="navigation-sub-title">{t('navigation.analytics')}</h5>
             <ul className="navigation-list flex-column">
-                {generateNavigationLinks(t, selectedDelegator, selectedGuardian).map(
+                {generateNavigationLinks(t).map(
                     (link: NavigationLink, index: number) => {
                         const { name, image, route, selectedImage } = link;
                         const isSelected = selectedSection === name;
@@ -39,7 +45,7 @@ export const NavigationMenu: Component<any> = () => {
                         return (
                             <li className={className} key={index}>
                                 <Link to={route} className="navigation-list-item-link flex-column">
-                                    <img src={isSelected ? selectedImage : image} alt={name} />
+                                    <img src={ isSelected ?  selectedImage : image} alt={name} />
                                     <p className="capitalize">{name}</p>
                                 </Link>
                             </li>

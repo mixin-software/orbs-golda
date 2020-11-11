@@ -1,7 +1,13 @@
+@import '../../../../../../scss/colors/colors.scss';
+
 .delegator-rewards{
     display: flex;
     flex-direction: column;
     height: 100%;
   justify-content: flex-start;
- 
+  &-top{
+    .MuiTableCell-root{
+      border-bottom: 1px solid $list-border-color ;
+    }
+  }
 }

@@ -1,10 +1,10 @@
 import { PosOverview, PosOverviewSlice, PosOverviewData, Guardian } from '@orbs-network/pos-analytics-lib';
 import { ChartUnit } from '../../global/enums';
 import { DATE_FORMAT, OVERVIEW_CHART_LIMIT } from '../../global/variables';
-import { sortByDate, sortByNumber } from '../array';
+import { sortByNumber } from '../array';
 import { returnDateNumber, converFromNumberToDate, generateMonths, generateDays, generateWeeks } from '../dates';
 import { getGuardiansOrder } from './overview';
-
+import moment from 'moment';
 export const generateDataset = (arr: any) => {
     const result = Object.keys(arr).map((key) => {
         return arr[key];
@@ -58,9 +58,35 @@ const getNewestSlice = (slices: PosOverviewSlice[]) => {
     const sorted = sortByNumber(slices, 'block_time');
     return sorted[0];
 };
-export const getOverviewChartData = (guardians: Guardian[], dates: any, unit: ChartUnit, overviewData: PosOverview) => {
-    const { slices } = overviewData;
-    const NewestSlice = getNewestSlice(slices);
+// export const getOverviewChartData = (
+//     minDate: Date,
+//     guardians: Guardian[],
+//     dates: any,
+//     unit: ChartUnit,
+//     overviewData: PosOverview
+// ) => {
+//     const { slices } = overviewData;
+//     const NewestSlice = getNewestSlice(slices);
+//     let order = getGuardiansOrder(guardians, NewestSlice, 'effective_stake', unit, dates);
+//     order = insertGuardiansByDate(slices, unit, dates, order);
+//     const obj = {
+//         data: generateDataset(order),
+//         unit
+//     };
+//     return obj;
+// };
+
+export const getOverviewChartData = (
+    minDate: Date,
+    guardians: Guardian[],
+    dates: any,
+    unit: ChartUnit,
+    { slices }: PosOverview
+) => {
+    const moMinDate = moment(minDate);
+    const filteredSlices = slices.filter((s) => moment.unix(s.block_time) >= moMinDate);
+
+    const NewestSlice = getNewestSlice(filteredSlices);
     let order = getGuardiansOrder(guardians, NewestSlice, 'effective_stake', unit, dates);
     order = insertGuardiansByDate(slices, unit, dates, order);
     const obj = {
@@ -70,20 +96,23 @@ export const getOverviewChartData = (guardians: Guardian[], dates: any, unit: Ch
     return obj;
 };
 
-export const getStakeChartData = (guardians: Guardian[], unit: ChartUnit, overviewData?: PosOverview) => {
+export const getStakeChartData = (guardians: Guardian[], unit: ChartUnit, overviewData?: PosOverview): any => {
     if (!overviewData) return;
-    let data;
-    let dates;
+    let dates, minDate;
     switch (unit) {
         case ChartUnit.WEEK:
+            minDate = moment().subtract(OVERVIEW_CHART_LIMIT, 'weeks');
             dates = generateWeeks(OVERVIEW_CHART_LIMIT);
             break;
         case ChartUnit.DAY:
+            minDate = moment().subtract(OVERVIEW_CHART_LIMIT, 'days');
             dates = generateDays(OVERVIEW_CHART_LIMIT);
             break;
         default:
+            minDate = moment().subtract(OVERVIEW_CHART_LIMIT, 'week');
+            dates = generateWeeks(OVERVIEW_CHART_LIMIT);
             break;
     }
-    data = getOverviewChartData(guardians, dates, unit, overviewData);
-    return data;
+    if (!dates) return;
+    return getOverviewChartData(minDate.toDate(), guardians, dates, unit, overviewData);
 };

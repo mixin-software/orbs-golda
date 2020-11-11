@@ -4,59 +4,9 @@
 .guardian-stake-balance {
     margin-left: auto;
     margin-right: auto;
-    height: 150px;
+    height: 100px;
     border-bottom: 1px solid #D9D9D9;
-    padding-top: 20px;
+    padding-top: 0px;
     padding-left: 20px;
     width: 100%;
-  
-    &-img{
-        width: 15px;
-        height: 15px;
-        margin-top: auto;
-        object-fit: contain;
-        margin-bottom: 3px;
-        margin-left: 5px;
-    }
-    &-bold{
-        font-size: 25px;
-        font-weight: 600;
-    }
-   
-   
-    &-section {
-        height: 100%;
-        position: relative;
-        padding-left: 50px;
-        padding-right: 50px;
-        &:nth-child(1) {
-            padding-left: 0px;
-            &::after {
-                display: none;
-            }
-        }
-
-        &::after {
-            position: absolute;
-            content: '';
-            left: 0px;
-            width: 1px;
-            height: 86px;
-            background: #D9D9D9;
-        }
-
-        h4 {
-            margin-bottom: 20px;
-            font-size: 18px;                 
-        }
-
-        h5 {
-            font-size: 18px;
-            font-weight: 600;
-            color: $dark-font-color;
-            margin-bottom: 10px;
-        }
-
-      
-    }
 }

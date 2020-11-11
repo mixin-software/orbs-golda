@@ -8,7 +8,6 @@ const App: Component = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getGuardiansAction());
-        dispatch(getOverviewAction());
     }, []);
 
     return (

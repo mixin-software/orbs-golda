@@ -1,5 +1,13 @@
 import { Guardian } from '@orbs-network/pos-analytics-lib';
-import { ChartColors, ChartUnit, ChartYaxis, DelegatorsSections, GuardiansSections, OverviewSections } from './enums';
+import {
+    ChartColors,
+    ChartUnit,
+    ChartYaxis,
+    DelegatorsSections,
+    GuardianChartName,
+    GuardiansSections,
+    OverviewSections
+} from './enums';
 
 export interface MenuOption {
     name: string;
@@ -80,7 +88,7 @@ export interface GuardiansChartDataset {
 }
 
 export interface GuardiansChartDatasets {
-    selfStake: GuardiansChartDataset;
-    delegatedStake: GuardiansChartDataset;
-    delegators: GuardiansChartDataset;
+    self_stake: GuardiansChartDataset;
+    delegated_stake: GuardiansChartDataset;
+    n_delegates: GuardiansChartDataset;
 }

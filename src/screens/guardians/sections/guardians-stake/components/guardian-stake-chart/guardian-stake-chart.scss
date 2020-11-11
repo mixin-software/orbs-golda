@@ -31,11 +31,14 @@
     .line-chart-text {
         position: absolute;
         height: 100%;
+        display: flex;
+        justify-content: center;
         p{
             font-size: 13px;
             overflow: hidden;
             text-overflow: ellipsis;
-            max-height: 45%;
+            max-height: 40%;
+        
         }
         small{
             margin-top: 5px;

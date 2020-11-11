@@ -21,8 +21,10 @@
         }
     }
 
-    &-text{
-      
+    &-list{
+        &-element{
+            margin-bottom: 20px;
+        }
     }
     &-big{
         width: 100%;

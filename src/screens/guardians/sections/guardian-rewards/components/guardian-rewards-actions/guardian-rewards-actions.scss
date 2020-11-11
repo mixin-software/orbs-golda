@@ -16,13 +16,14 @@
         }
     
         .loader-list {
+            margin-top: 50px;
             &-element {
                 div {
                     width: calc(100% / 4);
                     padding-right: 40px;
                     .loader {
                         height: 20px;
-                        width: 100px;
+                        width: 130px;
                     }
                 }
             }

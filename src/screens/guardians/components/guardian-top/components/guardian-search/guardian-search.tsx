@@ -13,7 +13,12 @@ import { routes } from '../../../../../../routes/routes';
 import { getGuardianName, checkIfLoadDelegator, getGuardianByAddress } from '../../../../../../utils/guardians';
 import './guardian-search.scss';
 
-export const GuardianSearch = () => {
+interface StateProps {
+    address?: string;
+    section: string;
+}
+
+export const GuardianSearch = ({address, section}:StateProps ) => {
     const { guardians, selectedGuardian } = useSelector((state: AppState) => state.guardians);
   
 
@@ -23,22 +28,20 @@ export const GuardianSearch = () => {
     const [ref, hasClickedOutside] = useClickOutside();
     const [inputValue, setInputValue] = useState<string>('');
     const [showResults, setShowResults] = useState<boolean>(false);
-    const params: RouteParams = useParams();
-    useEffect(() => {
-        const { address } = params;
-        searchGuardianByAddress(address);
-        
     
+    
+    useEffect(() => {
+        searchGuardianByAddress(address);
+        setGuardianNameAsValue(address || selectedGuardian?.address)
     }, []);
 
  
     useEffect(() => {
-        const { address } = params;
         setGuardianNameAsValue(address);
     }, [guardians && guardians.length]);
 
+
     useEffect(() => {
-        const { address } = params;
         if (hasClickedOutside) {
             setShowResults(false);
             setGuardianNameAsValue(address);
@@ -48,7 +51,6 @@ export const GuardianSearch = () => {
     }, [hasClickedOutside]);
 
     const searchGuardianByAddress = (address?: string) => {
-        const { section } = params;
         if (!address) {
             return dispatch(setGuardianLoading(false));
         }

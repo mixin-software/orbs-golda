@@ -1,21 +1,14 @@
-import { Delegator, DelegatorAction, DelegatorStake } from '@orbs-network/pos-analytics-lib';
+import { Delegator, DelegatorAction } from '@orbs-network/pos-analytics-lib';
 import { TFunction } from 'i18next';
 import { ChartColors, ChartUnit, ChartYaxis, DelegatorActionsTypes, DelegatorsSections } from '../global/enums';
-import { ChartData, ChartDatasetObject, MenuOption } from '../global/types';
+import { ChartData, MenuOption } from '../global/types';
 import { routes } from '../routes/routes';
 import moment from 'moment';
-import {
-    converFromNumberToDateMilliseconds,
-    generateDays,
-    generateMonths,
-    generateWeeks,
-    returnDateNumber
-} from './dates';
-import { dateCompare, sortByDate } from './array';
+import { generateDays, generateMonths, generateWeeks, returnDateNumber } from './dates';
 import { STACK_GRAPH_MONTHS_LIMIT } from '../global/variables';
 import { convertToString } from './number';
-export const generateDelegatorsRoutes = (t: TFunction, delegator?: Delegator): MenuOption[] => {
-    const address = delegator ? delegator.address : '';
+import { chartDatasetObjectComparer } from './chart';
+export const generateDelegatorsRoutes = (t: TFunction, address: string): MenuOption[] => {
     return [
         {
             name: t('main.stake'),
@@ -64,8 +57,9 @@ export const getDelegatorChartData = (
                 x: moment.unix(m.block_time).valueOf(),
                 y: m.stake
             };
-        });
-    // .sort(dateCompare)
+        })
+        .sort(chartDatasetObjectComparer);
+
     const dataset = {
         data: [...emptydataPoints, ...points],
         color: ChartColors.TOTAL_STAKE,
@@ -76,29 +70,6 @@ export const getDelegatorChartData = (
         unit
     };
 };
-
-// export const getDelegatorChartData1 = (dates: any, unit: ChartUnit, { stake_slices }: Delegator): ChartData => {
-//     let arr = fillDelegatorsChartData(dates);
-//     stake_slices.map((slice: DelegatorStake) => {
-//         const { block_time, stake } = slice;
-//         const date = returnDateNumber(block_time, unit);
-//         if (!dates.hasOwnProperty(date)) return;
-//         const datasetObject = {
-//             x: moment.unix(block_time).valueOf(),
-//             y: stake
-//         };
-//         arr.push(datasetObject);
-//     });
-//     const dataset = {
-//         data: sortByDate(arr),
-//         color: ChartColors.TOTAL_STAKE,
-//         yAxis: ChartYaxis.Y1
-//     };
-//     return {
-//         datasets: [dataset],
-//         unit
-//     };
-// };
 
 export const generateDelegatorsActionColors = (event: DelegatorActionsTypes) => {
     switch (event) {

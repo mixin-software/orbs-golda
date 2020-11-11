@@ -1,0 +1,314 @@
+{
+  "address": "0xb4d4f0e476afe791b26b39985a65b1bc1bbacdca",
+  "block_number": 11234872,
+  "block_time": 1605078482,
+  "total_stake": 203489,
+  "cooldown_stake": 0,
+  "current_cooldown_time": 0,
+  "non_stake": 23271.71972278,
+  "delegated_to": "0xf7ae622C77D0580f02Bcb2f92380d61e3F6e466c",
+  "rewards_balance": 15.472146594645354,
+  "rewards_claimed": 0,
+  "total_rewards": 15.472146594645354,
+  "stake_slices": [
+    {
+      "block_number": 11234872,
+      "block_time": 1605078482,
+      "stake": 203489,
+      "cooldown": 0
+    },
+    {
+      "block_number": 11122195,
+      "block_time": 1603586878,
+      "stake": 203489,
+      "cooldown": 0
+    },
+    {
+      "block_number": 11067350,
+      "block_time": 1602854381,
+      "stake": 0,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10975105,
+      "block_time": 1601622380,
+      "stake": 0,
+      "cooldown": 2789489
+    },
+    {
+      "block_number": 10962745,
+      "block_time": 1601457303,
+      "stake": 2789489,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10799770,
+      "block_time": 1599280650,
+      "stake": 2755210,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10688216,
+      "block_time": 1597790763,
+      "stake": 2422583,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10648591,
+      "block_time": 1597261541,
+      "stake": 2399632,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10648584,
+      "block_time": 1597261448,
+      "stake": 2375032,
+      "cooldown": 24600
+    },
+    {
+      "block_number": 10642276,
+      "block_time": 1597177200,
+      "stake": 2399632,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10609565,
+      "block_time": 1596740320,
+      "stake": 2351563,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10572746,
+      "block_time": 1596248574,
+      "stake": 2270905,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10474295,
+      "block_time": 1594933688,
+      "stake": 2268234,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10469878,
+      "block_time": 1594874695,
+      "stake": 1539202,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10405029,
+      "block_time": 1594008588,
+      "stake": 955722,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10351567,
+      "block_time": 1593294563,
+      "stake": 953907,
+      "cooldown": 0
+    },
+    {
+      "block_number": 10328670,
+      "block_time": 1592988757,
+      "stake": 913820,
+      "cooldown": 0
+    },
+    {
+      "block_number": 9830000,
+      "block_time": 1586328645,
+      "stake": 0,
+      "cooldown": 0
+    }
+  ],
+  "actions": [
+    {
+      "contract": "0xb97178870f39d4389210086e4bcaccacd715c71d",
+      "event": "Delegated",
+      "block_time": 1604516264,
+      "block_number": 11191782,
+      "tx_hash": "0x5520f4d44035f273e7f2614ee26b8fd96bb942b3c8b14e53e59b4bd5478c7683",
+      "additional_info_link": "https://etherscan.io/tx/0x5520f4d44035f273e7f2614ee26b8fd96bb942b3c8b14e53e59b4bd5478c7683",
+      "to": "0xf7ae622c77d0580f02bcb2f92380d61e3f6e466c"
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 11122195,
+      "block_time": 1603586878,
+      "tx_hash": "0x875b2f6ef36123af6f6cfe088c4a059a65f2f56c71530881de3170c0e71352e7",
+      "additional_info_link": "https://etherscan.io/tx/0x875b2f6ef36123af6f6cfe088c4a059a65f2f56c71530881de3170c0e71352e7",
+      "amount": 203489,
+      "current_stake": 203489
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Withdrew",
+      "block_number": 11067350,
+      "block_time": 1602854381,
+      "tx_hash": "0x10dd4b18dc1c801ec6a8b69480e7460fc30024431b3a9a930016c913318699c7",
+      "additional_info_link": "https://etherscan.io/tx/0x10dd4b18dc1c801ec6a8b69480e7460fc30024431b3a9a930016c913318699c7",
+      "amount": 2789489,
+      "current_stake": 0
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Unstaked",
+      "block_number": 10975105,
+      "block_time": 1601622380,
+      "tx_hash": "0xeefaccdcc78609f766556e9946ac35bad021ce886608d6bc9cf3ba09c33fcd61",
+      "additional_info_link": "https://etherscan.io/tx/0xeefaccdcc78609f766556e9946ac35bad021ce886608d6bc9cf3ba09c33fcd61",
+      "amount": 2789489,
+      "current_stake": 0
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10962745,
+      "block_time": 1601457303,
+      "tx_hash": "0x2958cdd4a5bb127659351bb402d465b7ba3785db61a7407833732e86617ff044",
+      "additional_info_link": "https://etherscan.io/tx/0x2958cdd4a5bb127659351bb402d465b7ba3785db61a7407833732e86617ff044",
+      "amount": 34279,
+      "current_stake": 2789489
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10799770,
+      "block_time": 1599280650,
+      "tx_hash": "0x626432a910faddb0d00f90adc1f62bd914de41d080dfffe69328abf63246a77e",
+      "additional_info_link": "https://etherscan.io/tx/0x626432a910faddb0d00f90adc1f62bd914de41d080dfffe69328abf63246a77e",
+      "amount": 332627,
+      "current_stake": 2755210
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10688216,
+      "block_time": 1597790763,
+      "tx_hash": "0x2b062e2bdf26f6f1f4f3db1dcc522c87221bc93ead362856e9cf57379f0780a8",
+      "additional_info_link": "https://etherscan.io/tx/0x2b062e2bdf26f6f1f4f3db1dcc522c87221bc93ead362856e9cf57379f0780a8",
+      "amount": 22951,
+      "current_stake": 2422583
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Restaked",
+      "block_number": 10648591,
+      "block_time": 1597261541,
+      "tx_hash": "0xc2a19fe9d570c9fe2c69bd537aa89d67e4983194f54e10737017b6202766b7bc",
+      "additional_info_link": "https://etherscan.io/tx/0xc2a19fe9d570c9fe2c69bd537aa89d67e4983194f54e10737017b6202766b7bc",
+      "amount": 24600,
+      "current_stake": 2399632
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Unstaked",
+      "block_number": 10648584,
+      "block_time": 1597261448,
+      "tx_hash": "0xd050df87a6c1deaa790d884a334ddb71755d51398be2e98815a5eb4c0da5b8e1",
+      "additional_info_link": "https://etherscan.io/tx/0xd050df87a6c1deaa790d884a334ddb71755d51398be2e98815a5eb4c0da5b8e1",
+      "amount": 24600,
+      "current_stake": 2375032
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10642276,
+      "block_time": 1597177200,
+      "tx_hash": "0x611232a5c0272934d606dceb97d9fde7e3cb7ed44fe22e999c9e7eb292bfb01c",
+      "additional_info_link": "https://etherscan.io/tx/0x611232a5c0272934d606dceb97d9fde7e3cb7ed44fe22e999c9e7eb292bfb01c",
+      "amount": 48069,
+      "current_stake": 2399632
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10609565,
+      "block_time": 1596740320,
+      "tx_hash": "0x75dfdaedd6ae30a52ccd7e9ad8e6b5685e085f80e556e3806735f28b6a0ade2d",
+      "additional_info_link": "https://etherscan.io/tx/0x75dfdaedd6ae30a52ccd7e9ad8e6b5685e085f80e556e3806735f28b6a0ade2d",
+      "amount": 80658,
+      "current_stake": 2351563
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10572746,
+      "block_time": 1596248574,
+      "tx_hash": "0xd149a99c80a022a3b096697991ed72d23b42eda62df74fd7c0e97a721ddf721e",
+      "additional_info_link": "https://etherscan.io/tx/0xd149a99c80a022a3b096697991ed72d23b42eda62df74fd7c0e97a721ddf721e",
+      "amount": 2671,
+      "current_stake": 2270905
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10474295,
+      "block_time": 1594933688,
+      "tx_hash": "0x41b2a2f07c380df9d7430e1db06306276921c38dd88e4cd5be517ce34fd34f49",
+      "additional_info_link": "https://etherscan.io/tx/0x41b2a2f07c380df9d7430e1db06306276921c38dd88e4cd5be517ce34fd34f49",
+      "amount": 729032,
+      "current_stake": 2268234
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10469878,
+      "block_time": 1594874695,
+      "tx_hash": "0xe413b62b25d89fd7e93aa116f2839b73e4e476e1b10b6e247826e8bdacdd6694",
+      "additional_info_link": "https://etherscan.io/tx/0xe413b62b25d89fd7e93aa116f2839b73e4e476e1b10b6e247826e8bdacdd6694",
+      "amount": 583480,
+      "current_stake": 1539202
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10405029,
+      "block_time": 1594008588,
+      "tx_hash": "0x31fc0fdb8e0cc998876ba1b9ed9ff3b6d07ecba74ebef3987f6ee59ca7d9e9d7",
+      "additional_info_link": "https://etherscan.io/tx/0x31fc0fdb8e0cc998876ba1b9ed9ff3b6d07ecba74ebef3987f6ee59ca7d9e9d7",
+      "amount": 1815,
+      "current_stake": 955722
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10351567,
+      "block_time": 1593294563,
+      "tx_hash": "0x323fda5c828e6ceee6be85ec7d5b16f8cdddbd90163ab9d90035668226de2ace",
+      "additional_info_link": "https://etherscan.io/tx/0x323fda5c828e6ceee6be85ec7d5b16f8cdddbd90163ab9d90035668226de2ace",
+      "amount": 40087,
+      "current_stake": 953907
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10328670,
+      "block_time": 1592988757,
+      "tx_hash": "0xccc62d128e3f709dab19b89830310a0ee545fc30e706345db51ff96b818d5958",
+      "additional_info_link": "https://etherscan.io/tx/0xccc62d128e3f709dab19b89830310a0ee545fc30e706345db51ff96b818d5958",
+      "amount": 913820,
+      "current_stake": 913820
+    }
+  ],
+  "reward_slices": [
+    {
+      "block_number": 11234872,
+      "block_time": 1605078482,
+      "tx_hash": "",
+      "additional_info_link": "",
+      "amount": 15.472146594645354,
+      "total_awarded": 15.472146594645354,
+      "guardian_from": "0xf7ae622C77D0580f02Bcb2f92380d61e3F6e466c"
+    },
+    {
+      "block_number": 11145373,
+      "block_time": 1603891336,
+      "tx_hash": "",
+      "additional_info_link": "",
+      "amount": 0,
+      "total_awarded": 0,
+      "guardian_from": ""
+    }
+  ]
+}

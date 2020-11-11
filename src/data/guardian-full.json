@@ -1,0 +1,1223 @@
+{
+  "address": "0xf7ae622c77d0580f02bcb2f92380d61e3f6e466c",
+  "block_number": 11234872,
+  "block_time": 1605078482,
+  "details": {
+    "name": "Guardians-of-Orbs",
+    "website": "https://www.guardians-of-orbs.com/",
+    "ip": "54.241.122.39",
+    "node_address": "0x5bcf21c33a7dfc6e5ed26f7439ef065075ea61cf",
+    "registration_time": 1596437292,
+    "last_update_time": 1596437292,
+    "details_URL": "https://www.guardians-of-orbs.com/"
+  },
+  "stake_status": {
+    "self_stake": 5366281.222,
+    "cooldown_stake": 0,
+    "current_cooldown_time": 0,
+    "non_stake": 971254.2745555555,
+    "delegated_stake": 45384020.468
+  },
+  "reward_status": {
+    "guardian_rewards_balance": 1726.104736528267,
+    "guardian_rewards_claimed": 0,
+    "total_guardian_rewards": 1726.104736528267,
+    "delegator_rewards_balance": 408.0215133735809,
+    "delegator_rewards_claimed": 0,
+    "total_delegator_rewards": 408.0215133735809,
+    "fees_balance": 33.709756339522706,
+    "fees_claimed": 0,
+    "total_fees": 33.709756339522706,
+    "bootstrap_balance": 0,
+    "bootstrap_claimed": 0,
+    "total_bootstrap": 0,
+    "delegator_reward_share": 66667
+  },
+  "actions": [
+    {
+      "contract": "0xce97f8c79228c53b8b9ad86800a493d1e7e5d1e3",
+      "event": "GuardianRegistered",
+      "block_number": 11191437,
+      "block_time": 1604511656,
+      "tx_hash": "0xeb3487c2c517395a475d1b9a39cd36e71efcb44a3817813a5a4220121f18bc7c",
+      "additional_info_link": "https://etherscan.io/tx/0xeb3487c2c517395a475d1b9a39cd36e71efcb44a3817813a5a4220121f18bc7c"
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Withdrew",
+      "block_number": 11091958,
+      "block_time": 1603183040,
+      "tx_hash": "0x1f99628cc959d193b80d4bfad604c2b695d407ad1c2c697c5c318d89b6cbf380",
+      "additional_info_link": "https://etherscan.io/tx/0x1f99628cc959d193b80d4bfad604c2b695d407ad1c2c697c5c318d89b6cbf380",
+      "amount": 2000000,
+      "current_stake": 5366281.222
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 11042008,
+      "block_time": 1602515920,
+      "tx_hash": "0xf422811be3fe239ddc6adb9bd644a87e701851a7d0d3679fbdf85e6e69d7f1aa",
+      "additional_info_link": "https://etherscan.io/tx/0xf422811be3fe239ddc6adb9bd644a87e701851a7d0d3679fbdf85e6e69d7f1aa",
+      "amount": 24.599,
+      "current_stake": 5366281.222
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Unstaked",
+      "block_number": 11001153,
+      "block_time": 1601970271,
+      "tx_hash": "0x8209397ca2089c984b50b18a326fd1c1cfd781d17bbb61aa2b815bdeb8697024",
+      "additional_info_link": "https://etherscan.io/tx/0x8209397ca2089c984b50b18a326fd1c1cfd781d17bbb61aa2b815bdeb8697024",
+      "amount": 2000000,
+      "current_stake": 5366256.623
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10962718,
+      "block_time": 1601456943,
+      "tx_hash": "0x94221ef9ebf63230f97277757b059bcd43852a3802673b878478835cdb1b2935",
+      "additional_info_link": "https://etherscan.io/tx/0x94221ef9ebf63230f97277757b059bcd43852a3802673b878478835cdb1b2935",
+      "amount": 1270441,
+      "current_stake": 7366256.623
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10919552,
+      "block_time": 1600880428,
+      "tx_hash": "0xec0ed317a2ff7266a5648faf230862f500da4f29e2bbb8167e86937495c5d663",
+      "additional_info_link": "https://etherscan.io/tx/0xec0ed317a2ff7266a5648faf230862f500da4f29e2bbb8167e86937495c5d663",
+      "amount": 22.352,
+      "current_stake": 6095815.623
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10827699,
+      "block_time": 1599653663,
+      "tx_hash": "0x336a75b67ec2b2ac611091e54967175a9860fcdb82d1fae8c8889bba9487411c",
+      "additional_info_link": "https://etherscan.io/tx/0x336a75b67ec2b2ac611091e54967175a9860fcdb82d1fae8c8889bba9487411c",
+      "amount": 22.052,
+      "current_stake": 6095793.271
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10735896,
+      "block_time": 1598427565,
+      "tx_hash": "0xd26f4e69e2c4ac3290f8b6b82d7336d015eb4dc6d1b3e712545c01e13a197649",
+      "additional_info_link": "https://etherscan.io/tx/0xd26f4e69e2c4ac3290f8b6b82d7336d015eb4dc6d1b3e712545c01e13a197649",
+      "amount": 4.99,
+      "current_stake": 6095771.219
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Withdrew",
+      "block_number": 10597279,
+      "block_time": 1596576231,
+      "tx_hash": "0x5b0671bb8507440b9402be40a5480d03ea927ac025a18b97b7fe82bf29c96e3a",
+      "additional_info_link": "https://etherscan.io/tx/0x5b0671bb8507440b9402be40a5480d03ea927ac025a18b97b7fe82bf29c96e3a",
+      "amount": 1200000,
+      "current_stake": 6095766.229
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Unstaked",
+      "block_number": 10506398,
+      "block_time": 1595362447,
+      "tx_hash": "0x77cb1835ce606aee19c8623a52398028b8908715c02a908549b5dcd7dd157a0b",
+      "additional_info_link": "https://etherscan.io/tx/0x77cb1835ce606aee19c8623a52398028b8908715c02a908549b5dcd7dd157a0b",
+      "amount": 1200000,
+      "current_stake": 6095766.229
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 10405007,
+      "block_time": 1594008294,
+      "tx_hash": "0x76c95e1a5e3372740ceeed545683d856a2bc8fa3d11ced5a49012117db40b3cb",
+      "additional_info_link": "https://etherscan.io/tx/0x76c95e1a5e3372740ceeed545683d856a2bc8fa3d11ced5a49012117db40b3cb",
+      "amount": 2708363,
+      "current_stake": 7295766.229
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 9993479,
+      "block_time": 1588512030,
+      "tx_hash": "0x3c0eb88b0e6d4f247f846d55afcd89b24142a77d8894eda21a63ba8745f92511",
+      "additional_info_link": "https://etherscan.io/tx/0x3c0eb88b0e6d4f247f846d55afcd89b24142a77d8894eda21a63ba8745f92511",
+      "amount": 76643.179,
+      "current_stake": 4587403.229
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 9993364,
+      "block_time": 1588510494,
+      "tx_hash": "0xa4de1ffb2826514896a83612e5f46231f6e24ac79f02dd834db86584fbe262c8",
+      "additional_info_link": "https://etherscan.io/tx/0xa4de1ffb2826514896a83612e5f46231f6e24ac79f02dd834db86584fbe262c8",
+      "amount": 6277.05,
+      "current_stake": 4510760.05
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Restaked",
+      "block_number": 9908002,
+      "block_time": 1587370420,
+      "tx_hash": "0xaa23247b20024fef8ee5241e03b72bc3885d7b9739ba35cffc6e4ae31b8e7b84",
+      "additional_info_link": "https://etherscan.io/tx/0xaa23247b20024fef8ee5241e03b72bc3885d7b9739ba35cffc6e4ae31b8e7b84",
+      "amount": 4504483,
+      "current_stake": 4504483
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Unstaked",
+      "block_number": 9907975,
+      "block_time": 1587370060,
+      "tx_hash": "0x477964a67fa61bc64344f0973cbfc4183eb65e622603eb2fe0f1a39bfd257a1c",
+      "additional_info_link": "https://etherscan.io/tx/0x477964a67fa61bc64344f0973cbfc4183eb65e622603eb2fe0f1a39bfd257a1c",
+      "amount": 4504483,
+      "current_stake": 0
+    },
+    {
+      "contract": "0x01d59af68e2dcb44e04c50e05f62e7043f2656c3",
+      "event": "Staked",
+      "block_number": 9907868,
+      "block_time": 1587368630,
+      "tx_hash": "0x7646a070a34369e40203f757255ef17241cee3103a56683e4d8406726b46671f",
+      "additional_info_link": "https://etherscan.io/tx/0x7646a070a34369e40203f757255ef17241cee3103a56683e4d8406726b46671f",
+      "amount": 4504483,
+      "current_stake": 4504483
+    }
+  ],
+  "stake_slices": [
+    {
+      "block_number": 11234872,
+      "block_time": 1605078482,
+      "self_stake": 5366281.222,
+      "delegated_stake": 45384020.468,
+      "n_delegates": 100
+    },
+    {
+      "block_number": 11234485,
+      "block_time": 1605086595,
+      "self_stake": 5366281.222,
+      "delegated_stake": 40017739.246,
+      "n_delegates": 108
+    },
+    {
+      "block_number": 11226180,
+      "block_time": 1604975675,
+      "self_stake": 5366281.222,
+      "delegated_stake": 40012945.246,
+      "n_delegates": 108
+    },
+    {
+      "block_number": 11209500,
+      "block_time": 1604752901,
+      "self_stake": 5366281.222,
+      "delegated_stake": 40093388.246,
+      "n_delegates": 108
+    },
+    {
+      "block_number": 11202182,
+      "block_time": 1604655164,
+      "self_stake": 5366281.222,
+      "delegated_stake": 42574188.246,
+      "n_delegates": 108
+    },
+    {
+      "block_number": 11191784,
+      "block_time": 1604516291,
+      "self_stake": 5366281.222,
+      "delegated_stake": 44856625.246,
+      "n_delegates": 108
+    },
+    {
+      "block_number": 11191782,
+      "block_time": 1604516264,
+      "self_stake": 0,
+      "delegated_stake": 41923865.246,
+      "n_delegates": 100
+    },
+    {
+      "block_number": 11091958,
+      "block_time": 1603183040,
+      "self_stake": 5366281.222,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 11042008,
+      "block_time": 1602515920,
+      "self_stake": 5366281.222,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 11001153,
+      "block_time": 1601970271,
+      "self_stake": 5366256.623,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 10962718,
+      "block_time": 1601456943,
+      "self_stake": 7366256.623,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 10919552,
+      "block_time": 1600880428,
+      "self_stake": 6095815.623,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 10827699,
+      "block_time": 1599653663,
+      "self_stake": 6095793.271,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 10735896,
+      "block_time": 1598427565,
+      "self_stake": 6095771.219,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 10597279,
+      "block_time": 1596576231,
+      "self_stake": 6095766.229,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 10506398,
+      "block_time": 1595362447,
+      "self_stake": 6095766.229,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 10405007,
+      "block_time": 1594008294,
+      "self_stake": 7295766.229,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 9993479,
+      "block_time": 1588512030,
+      "self_stake": 4587403.229,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 9993364,
+      "block_time": 1588510494,
+      "self_stake": 4510760.05,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 9908002,
+      "block_time": 1587370420,
+      "self_stake": 4504483,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 9907975,
+      "block_time": 1587370060,
+      "self_stake": 0,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 9907868,
+      "block_time": 1587368630,
+      "self_stake": 4504483,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    },
+    {
+      "block_number": 9830000,
+      "block_time": 1586328645,
+      "self_stake": 0,
+      "delegated_stake": 0,
+      "n_delegates": 0
+    }
+  ],
+  "reward_as_guardian_slices": [
+    {
+      "block_number": 11234872,
+      "block_time": 1605078482,
+      "tx_hash": "",
+      "additional_info_link": "",
+      "amount": 1726.104736528267,
+      "total_awarded": 1726.104736528267
+    },
+    {
+      "block_number": 11234485,
+      "block_time": 1605086595,
+      "tx_hash": "0xf6dfc4c7da9ebdf7de579150649f089b51a434a6c0dd05659ed009a435961405",
+      "additional_info_link": "https://etherscan.io/tx/0xf6dfc4c7da9ebdf7de579150649f089b51a434a6c0dd05659ed009a435961405",
+      "amount": 1165.5866232500398,
+      "total_awarded": 1695.7943085213167
+    },
+    {
+      "block_number": 11226180,
+      "block_time": 1604975675,
+      "tx_hash": "0x72a4dfc4e29381e7555211a7c7a0912d422b701526894d3d8341e82eb8dc18f8",
+      "additional_info_link": "https://etherscan.io/tx/0x72a4dfc4e29381e7555211a7c7a0912d422b701526894d3d8341e82eb8dc18f8",
+      "amount": 530.207685271277,
+      "total_awarded": 530.207685271277
+    },
+    {
+      "block_number": 11145373,
+      "block_time": 1603891336,
+      "tx_hash": "",
+      "additional_info_link": "",
+      "amount": 0,
+      "total_awarded": 0
+    }
+  ],
+  "reward_as_delegator_slices": [
+    {
+      "block_number": 11234872,
+      "block_time": 1605078482,
+      "tx_hash": "",
+      "additional_info_link": "",
+      "amount": 408.0215133735809,
+      "total_awarded": 408.0215133735809
+    },
+    {
+      "block_number": 11145373,
+      "block_time": 1603891336,
+      "tx_hash": "",
+      "additional_info_link": "",
+      "amount": 0,
+      "total_awarded": 0
+    }
+  ],
+  "bootstrap_slices": [
+    {
+      "block_number": 11234872,
+      "block_time": 1605078482,
+      "tx_hash": "",
+      "additional_info_link": "",
+      "amount": 0,
+      "total_awarded": 0
+    },
+    {
+      "block_number": 11224575,
+      "block_time": 1604954239,
+      "tx_hash": "0x1afb427e5825259f5d5e3b4fee921ad01099e3b4d0f96b6277b02599ea4cab62",
+      "additional_info_link": "https://etherscan.io/tx/0x1afb427e5825259f5d5e3b4fee921ad01099e3b4d0f96b6277b02599ea4cab62",
+      "amount": 0,
+      "total_awarded": 0
+    },
+    {
+      "block_number": 11145373,
+      "block_time": 1603891336,
+      "tx_hash": "",
+      "additional_info_link": "",
+      "amount": 0,
+      "total_awarded": 0
+    }
+  ],
+  "fees_slices": [
+    {
+      "block_number": 11234872,
+      "block_time": 1605078482,
+      "tx_hash": "",
+      "additional_info_link": "",
+      "amount": 33.709756339522706,
+      "total_awarded": 33.709756339522706
+    },
+    {
+      "block_number": 11224575,
+      "block_time": 1604954239,
+      "tx_hash": "0x1afb427e5825259f5d5e3b4fee921ad01099e3b4d0f96b6277b02599ea4cab62",
+      "additional_info_link": "https://etherscan.io/tx/0x1afb427e5825259f5d5e3b4fee921ad01099e3b4d0f96b6277b02599ea4cab62",
+      "amount": 0,
+      "total_awarded": 0
+    },
+    {
+      "block_number": 11145373,
+      "block_time": 1603891336,
+      "tx_hash": "",
+      "additional_info_link": "",
+      "amount": 0,
+      "total_awarded": 0
+    }
+  ],
+  "delegators": [
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xcf7872f3ad1f2609aefc0f1805f9f046ac559848",
+      "stake": 4551170,
+      "non_stake": 8100.79815116
+    },
+    {
+      "last_change_block": 11202182,
+      "last_change_time": 1604655164,
+      "address": "0x2fa5476d102cce87357de77c128b263d9b98392f",
+      "stake": 3000000,
+      "non_stake": 2656352.5524594085
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xc040162069fee0485572aad993149b6df9d7ff76",
+      "stake": 2318431.36,
+      "non_stake": 1511286.7066666668
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x2fa676f4d6bdbba48a52069c58a986b9b9efe3fe",
+      "stake": 2076105.023,
+      "non_stake": 1011027.6045255045
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xdced13066db99327a415643a808f8c41efbb4d4e",
+      "stake": 1849220.386,
+      "non_stake": 11345.2
+    },
+    {
+      "last_change_block": 11191784,
+      "last_change_time": 1604516291,
+      "address": "0xec4169f23b7e1c75ce4b4ce8998471d71f0b4e02",
+      "stake": 1141050,
+      "non_stake": 0.32794752
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xb78a7cf75a7839299f32ad8444c11004b7c2d998",
+      "stake": 1130163,
+      "non_stake": 4206.2626
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xd897411c97100ff57ed8f0e48dfeed1626c44d76",
+      "stake": 1126079,
+      "non_stake": 9289.2
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x0420ecb2e3717eef7a4c5e1f519b0d5114c35bdb",
+      "stake": 1027701,
+      "non_stake": 5770
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x34a81d5618a26e87747552c78ec29c38032069c0",
+      "stake": 1025969,
+      "non_stake": 7224.6
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xbc62baa3a1ab2e40d7142594c1b26a09e20044ef",
+      "stake": 984286,
+      "non_stake": 267584.72412603
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x74b10c5e374a762067b3dbcb8b935bfed3938cc5",
+      "stake": 955320,
+      "non_stake": 2575.40036873
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x27a07f50713472c5c25b21b7897bb9c2ef90208a",
+      "stake": 833438,
+      "non_stake": 1163.6
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x9b14ebcdbdaee6a46b78493475fcf1277278d3b3",
+      "stake": 828898.199,
+      "non_stake": 163840.4606666667
+    },
+    {
+      "last_change_block": 11191784,
+      "last_change_time": 1604516291,
+      "address": "0x262eef0a806e113d91d71bbf5f7b20fae9f3caac",
+      "stake": 826123,
+      "non_stake": 0.14859051
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x284357c1b3ff1ca0c268097a10dd20187dfe760d",
+      "stake": 806955.701,
+      "non_stake": 11582.5
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x59ab7428f709393b14ee2b579895087addcaaa94",
+      "stake": 759118,
+      "non_stake": 3949.852908989997
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x8d40b198fec5d7dbbb059ee047b5fc12b8360d85",
+      "stake": 688222.586,
+      "non_stake": 10105.5
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x2e8b100471419ef5cf6440daa69b4171d1ede352",
+      "stake": 653755.155,
+      "non_stake": 188197.54126272
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x00fc3beabd3b51be88545ff28c0b6d5115996b8d",
+      "stake": 647788,
+      "non_stake": 18957.669798
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x6cc1b637f518ee5ffa069aa78d70214a9005d390",
+      "stake": 646817,
+      "non_stake": 4457.5
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xc167b35e8c0c31cb16ba183b617dc79734e785e6",
+      "stake": 627498,
+      "non_stake": 1319.15073175
+    },
+    {
+      "last_change_block": 11191784,
+      "last_change_time": 1604516291,
+      "address": "0x8d0e0b57b94ac868839e164ef27240635caff6e8",
+      "stake": 602375,
+      "non_stake": 0.0212265
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x8e0cfb43b814e8a919d7a80987dda5b98ad401e9",
+      "stake": 588461.902,
+      "non_stake": 4544.14606711
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x9eeee3aae3db3433fa302c321bab449b449d7686",
+      "stake": 571572.911,
+      "non_stake": 4223.563
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xc860150568c2a51638540d601d02781db3063900",
+      "stake": 521042,
+      "non_stake": 12513.54498757
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x9b21d8f2a2aac3e28ffd8e3c7c925ee5d5daf20b",
+      "stake": 486046,
+      "non_stake": 1034.81318663
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x954af0920a6f67e796ef14f831663fda0748f190",
+      "stake": 436833.81,
+      "non_stake": 58558.665058
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xd00e6dad2d07ba83875a533c7d7f2bcc874e278c",
+      "stake": 415801.359,
+      "non_stake": 3288.5
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x96e87f55f8807e6737667426f48dad0d9591d37f",
+      "stake": 385731,
+      "non_stake": 989.19607494
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x2b21994ed0e7e6e787b43fb501c4faf2ed1f8b38",
+      "stake": 365681,
+      "non_stake": 3698.01098164
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x42765a44019c6217b472a049f9b72bd181d9faeb",
+      "stake": 353504,
+      "non_stake": 19422.07246675
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x1e7dd142e3f89f3abb88f07fe71344725c26f6ce",
+      "stake": 350867,
+      "non_stake": 909.21496599
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x4579c9876a6b1dc9bf0b8e0e700789d6638db725",
+      "stake": 325697,
+      "non_stake": 1740.593
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x127c219b245a440eb271278bbccdc0145106da50",
+      "stake": 286718,
+      "non_stake": 5552.86001
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x353bcf04a48c590264bb27f906db24e1eace18ed",
+      "stake": 283072.539,
+      "non_stake": 141536
+    },
+    {
+      "last_change_block": 11191784,
+      "last_change_time": 1604516291,
+      "address": "0x9b38413ca6b00e09abea1a7b959857c7eae747a5",
+      "stake": 274274,
+      "non_stake": 0.912934
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x6ae3a277332606ae46ba194e3952b29c20302066",
+      "stake": 270932,
+      "non_stake": 47443.430555555555
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x259762e379ae7ad6f74375781d7c9598cf3facdc",
+      "stake": 263419,
+      "non_stake": 51496.83
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x3debc3e0e1326a3d87cdd9965c6cc4deee94c6f7",
+      "stake": 234547.612,
+      "non_stake": 1405.2
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x07ea6302f16ce31158d01d96b24d487ba7ad5615",
+      "stake": 218203,
+      "non_stake": 718.23
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xc9718b9158bf979a6523d9f11b8f1d544231f05d",
+      "stake": 215631.287,
+      "non_stake": 3154.5
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x9047d7d076c857296456ac79abe0e22c532a2996",
+      "stake": 213989.214,
+      "non_stake": 675.47025222
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x9520c4ba05bb81d875f6a36fd61fcba418d87626",
+      "stake": 213479,
+      "non_stake": 755.6
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xb4d4f0e476afe791b26b39985a65b1bc1bbacdca",
+      "stake": 203489,
+      "non_stake": 23271.71972278
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xffbb5b68a2dee390ef8230744f8d3a06f35102c3",
+      "stake": 195531,
+      "non_stake": 941.1482
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x61a0d43ed1520966090a53666c4e48d947a1b995",
+      "stake": 192604,
+      "non_stake": 3787.56504828
+    },
+    {
+      "last_change_block": 11234485,
+      "last_change_time": 1605086595,
+      "address": "0xff31898b480133cf417919ab55025343781cc08b",
+      "stake": 176903,
+      "non_stake": 0.16842276
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x13f0aee1b19c0f0059d1b0472783139c6abfb42d",
+      "stake": 173901,
+      "non_stake": 2087.42809825
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x6081d1cdfb99c340cf926c06a450fdcfad11c7f5",
+      "stake": 170331,
+      "non_stake": 841.8
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x10a28632a3133536b4d0f5aad2e96b5f8b7d9a84",
+      "stake": 169259.909,
+      "non_stake": 1325.5
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xde75478008e5b50467940aeefb4303a59d312ba4",
+      "stake": 164067.341,
+      "non_stake": 831.08098895
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x137250c22f527642a7391d9f306b43bb9cfdf676",
+      "stake": 163705.837,
+      "non_stake": 1145.6
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xec410e975682f2156ac3e2b207d0f4e5cc3a8d91",
+      "stake": 155280,
+      "non_stake": 606.83
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x57a10c1df0fbaa335b79131e7781d4b6adcd2822",
+      "stake": 144838,
+      "non_stake": 346.05466578
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x77f3dd68c14a5955914d4aef9bca977768c5e68f",
+      "stake": 123987,
+      "non_stake": 8109.21
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xc069b19c821edd6690411654fbb70f458559bd6a",
+      "stake": 116354.77,
+      "non_stake": 739.6
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xb593b84a7c08f72fd6355a6729bce5b1d7c04e3e",
+      "stake": 115586,
+      "non_stake": 165.73
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x4de6f265cae94b0baa312aa3c5c4cab909249013",
+      "stake": 108389,
+      "non_stake": 1508.65293246
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x7cd13ada0b4cff8c1ca7a1a2d63015ff58c3f340",
+      "stake": 108012.822,
+      "non_stake": 1579.8007
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x01b899d1f3da9d718fdfa0537ef833e5b6f61b3f",
+      "stake": 102453.397,
+      "non_stake": 776.11026519
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x168f532e683a251516d8611d22af0773fdd94770",
+      "stake": 93366.704,
+      "non_stake": 292.4
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x6c72184ec81a7b68e0aea1196610c5f28555b78b",
+      "stake": 92755,
+      "non_stake": 625.29
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x9ed36539b6687da5a7f747349ceaa418c809b3e9",
+      "stake": 71622.568,
+      "non_stake": 1114.03965242
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x14e9f90c304f6784bc529a68b6ef7e2f01271bce",
+      "stake": 62729,
+      "non_stake": 0.6343
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xff3fc772434505abff38eecde3c689d4b0254528",
+      "stake": 57931,
+      "non_stake": 1186.3651
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xfbc9404631edd833ffa15f8ac241810cf3ae1f4d",
+      "stake": 56353.986,
+      "non_stake": 5958.43
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xc188c82160b5e50a722210758f567e46d06fea82",
+      "stake": 52565,
+      "non_stake": 1492.4
+    },
+    {
+      "last_change_block": 11191784,
+      "last_change_time": 1604516291,
+      "address": "0xb3aa468e1e278a04d49aa395f10e07f7939c5864",
+      "stake": 52141,
+      "non_stake": 0.93
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x15c63b826d349647bec8716df183e4d7d7394d8c",
+      "stake": 50927,
+      "non_stake": 185.4
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x9b970d03d0cf0928e5b8d6bed73ab1b66b432f8c",
+      "stake": 42676.634,
+      "non_stake": 1090.93
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x0ed3749810125ff9d8aca782ba7128f6ff7c3f08",
+      "stake": 41215,
+      "non_stake": 74.5089
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x1d79d32bb6a9e067157049814a7800db110ce826",
+      "stake": 39618,
+      "non_stake": 887.9446287
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x642bc489ccf785737f8d6177ce8ad6affa57924e",
+      "stake": 36895.804,
+      "non_stake": 911.53
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x676f6a1e6da16b0476d6a36ce014a0c5642e668c",
+      "stake": 34378.368,
+      "non_stake": 14865.48967866
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x0d2a3b0db03674bea56599928155d9dd837593e0",
+      "stake": 24882,
+      "non_stake": 76.4
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xaeb49655274160f8e1ecf2a5113e28cb27058788",
+      "stake": 22955.05,
+      "non_stake": 129.0112
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x279ba53a1ad77793544eaf2ac7398a7bd7361aaa",
+      "stake": 22740,
+      "non_stake": 35.37804374
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x19296ce41bea71dc575fe7103b1e2e53bff1a146",
+      "stake": 21859,
+      "non_stake": 2579.43
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x6bdb0fdd1f72d514e348a278149666d161e00290",
+      "stake": 20982.331,
+      "non_stake": 99631
+    },
+    {
+      "last_change_block": 11191784,
+      "last_change_time": 1604516291,
+      "address": "0xe8c31ea506f76b66491b04f4699d4727e78a88fc",
+      "stake": 18726,
+      "non_stake": 0
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xdc75d964b7bb3dbd2829e43833092d94fd56afd1",
+      "stake": 15175,
+      "non_stake": 70
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x9c41c3c747d8addd6fc5ba3c4e9a811176c5d2e9",
+      "stake": 14798,
+      "non_stake": 79.6
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xc5cae07c41ef17f251c7f8b6c82d5f9188168088",
+      "stake": 14575.693,
+      "non_stake": 347.73
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xbb8921acfa24f21e1d35d32e29be2c43bf561ea6",
+      "stake": 14552,
+      "non_stake": 234.33
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x80c57b0fa575fe458eee08a4a008afaea643f193",
+      "stake": 14121,
+      "non_stake": 64.3178
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x1082b0aaa0545b5c3b24a405344b3c02794c86f9",
+      "stake": 11314.199,
+      "non_stake": 79.05835007
+    },
+    {
+      "last_change_block": 11191784,
+      "last_change_time": 1604516291,
+      "address": "0x2fa0393cff15d306a580cba1b65dc4b0ee4a3172",
+      "stake": 10600,
+      "non_stake": 0
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xe482500db1ef0493551ca193fb1cf67085fa655f",
+      "stake": 9694,
+      "non_stake": 46.45
+    },
+    {
+      "last_change_block": 11191784,
+      "last_change_time": 1604516291,
+      "address": "0xd5529c431279b56cfba4ddab22e932b17ea40ae5",
+      "stake": 7471,
+      "non_stake": 2.81
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xfff67a4355a12ad68298254b1b4d0d9057ee5064",
+      "stake": 5229,
+      "non_stake": 1045.8
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xa9531d3b5483bef6fae3b4be62ccd83697ab92b1",
+      "stake": 4421,
+      "non_stake": 390139.2
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xcac63bfd84f147f0ff1a1c77909ae2d2ee23a2c2",
+      "stake": 3072,
+      "non_stake": 614.4
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x356c197ac451be6f2ea8b2ff2ca22f8f86125085",
+      "stake": 2660,
+      "non_stake": 942.33674751641
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x745e5982f8c580d276776d79818bc6ece2ad7890",
+      "stake": 2199.986,
+      "non_stake": 11.441821525196174
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xf195faa0602f8b6537a3ae6a30c4ed618fdb21ed",
+      "stake": 1435,
+      "non_stake": 287
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xdad2ae885d737a59f1c986ba69031967b988998c",
+      "stake": 1395.59,
+      "non_stake": 279
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xc4d72757cc238633d768e5135a6b0cbdf5832642",
+      "stake": 590.542,
+      "non_stake": 295.58
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x9c15eb09d492b6f6da306a3643b7a382afa78a9d",
+      "stake": 324,
+      "non_stake": 64.8
+    },
+    {
+      "last_change_block": 11209500,
+      "last_change_time": 1604752901,
+      "address": "0x6d81ab59cbb1f757b0346099b1c5bbf4a9bc2852",
+      "stake": 80.014,
+      "non_stake": 7827.73
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xe0d612f482e43bfdc25e0c1c36a4728ad3b7ca43",
+      "stake": 30.006,
+      "non_stake": 40
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x2c59626f0c1b6c06d1bfd6192e92555e339a5393",
+      "stake": 0.891,
+      "non_stake": 2928.8
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xf1dbdc482cb7730c86db25266d3faddf8d3a13b2",
+      "stake": 0.76,
+      "non_stake": 28224.5
+    }
+  ],
+  "delegators_left": [
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xeb29e7fdc49a3e3466383219dfda099f88470390",
+      "stake": 0,
+      "non_stake": 3323.241793430476
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0x0445b78dc22fb9686dc1458312d298c7e8c3012d",
+      "stake": 0,
+      "non_stake": 79782.53
+    },
+    {
+      "last_change_block": 11226180,
+      "last_change_time": 1604975675,
+      "address": "0xb964b57b4404fb91341585260a7c0a4a2b3a7d2b",
+      "stake": 0,
+      "non_stake": 251.7175
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xd6b9f1c641c5e7a542d38b785df4cb7b653d409a",
+      "stake": 0,
+      "non_stake": 450.55141075
+    },
+    {
+      "last_change_block": 11191782,
+      "last_change_time": 1604516264,
+      "address": "0xab9ea06557c27da9c00aacb29dca45a07656e010",
+      "stake": 0,
+      "non_stake": 117114.2
+    }
+  ]
+}

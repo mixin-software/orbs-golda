@@ -9,8 +9,6 @@ interface StateProps {
     chartData: ChartData;
 }
 
-
-
 export const Chart = ({ chartData }: StateProps) => {
  const ref = useRef<any>(null)
     const { t } = useTranslation();
