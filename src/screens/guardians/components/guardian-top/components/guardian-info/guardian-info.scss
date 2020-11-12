@@ -1,4 +1,4 @@
-@import '../../../../../../scss/colors/colors.scss';
+@import 'scss/colors/colors.scss';
 
 .guardian-info {
     width: fit-content;
@@ -21,6 +21,9 @@
         flex-direction: column;
         flex-grow: 1;
         white-space: nowrap;
+        &:nth-child(1){
+            max-width: 50%;
+        }
         &:nth-child(2){
             white-space: nowrap;
             overflow: hidden;

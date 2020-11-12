@@ -1,9 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../../../../redux/types/types';
+import { AppState } from 'redux/types/types';
 import { Redirect, Route, useParams } from 'react-router-dom';
-import { routes } from '../../../../../../routes/routes';
-import { RouteParams } from '../../../../../../global/types';
+import { routes } from 'routes/routes';
 
 interface StateProps {
     addressParam?: string;

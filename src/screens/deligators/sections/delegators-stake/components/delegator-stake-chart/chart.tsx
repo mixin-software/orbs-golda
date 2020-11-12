@@ -1,8 +1,8 @@
 import React, { useRef } from 'react'
 import { Line } from 'react-chartjs-2';
 import { useTranslation } from 'react-i18next';
-import { ChartData } from '../../../../../../global/types';
-import { generateDatasets, getLineChartBaseSettings } from '../../../../../../utils/chart';
+import { ChartData } from 'global/types';
+import { generateDatasets, getLineChartBaseSettings } from 'utils/chart';
 
 interface StateProps {
     chartData: ChartData;

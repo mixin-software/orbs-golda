@@ -89,6 +89,22 @@ export interface GuardiansChartDataset {
 
 export interface GuardiansChartDatasets {
     self_stake: GuardiansChartDataset;
-    delegated_stake: GuardiansChartDataset;
+    total_stake: GuardiansChartDataset;
     n_delegates: GuardiansChartDataset;
+}
+
+export interface OverviewGuardianDataset {
+    label: string;
+    maxBarThickness: number;
+    hoverBackgroundColor: undefined;
+    data: GuardiansChartDatasetObject[];
+    address?: string;
+    order?: number;
+    backgroundColor?: string;
+}
+
+export interface GuardiansChartDatasetObject {
+    group: string;
+    x: string;
+    y: number | null;
 }

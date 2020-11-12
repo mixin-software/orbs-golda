@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { TimeRangeSelector } from '../../../../../../components/date-format-picker/time-range-selector';
-import { LoadingComponent } from '../../../../../../components/loading-component/loading-component';
-import { ChartUnit, LoaderType } from '../../../../../../global/enums';
-import { setGuardianChartData } from '../../../../../../redux/actions/actions';
-import { AppState } from '../../../../../../redux/types/types';
-import { generateGuardiansChartData } from '../../../../../../utils/guardians';
+import { TimeRangeSelector } from 'components/date-format-picker/time-range-selector';
+import { LoadingComponent } from 'components/loading-component/loading-component';
+import { ChartUnit, LoaderType } from 'global/enums';
+import { setGuardianChartData } from 'redux/actions/actions';
+import { AppState } from 'redux/types/types';
+import { generateGuardiansChartData } from 'utils/guardians';
 import { Chart } from './chart';
 import './guardian-stake-chart.scss';
 

@@ -1,4 +1,5 @@
-import moment, { unitOfTime } from 'moment';
+import { GRAPH_DAY_FORMAT, GRAPH_MONTH_FORMAT, GRAPH_WEEK_FORMAT } from 'global/variables';
+import moment, { Moment, unitOfTime } from 'moment';
 import { ChartUnit } from '../global/enums';
 
 export const generateMonths = (limit: number): Date[] => generateDates('month', limit);
@@ -61,5 +62,18 @@ export const converFromNumberToDateMilliseconds = (number: number, unit: ChartUn
             return moment().dayOfYear(number).valueOf();
         default:
             return moment().valueOf();
+    }
+};
+
+export const getDateFormatByUnit = (date: Moment, unit: ChartUnit): string => {
+    switch (unit) {
+        case ChartUnit.MONTH:
+            return date.format(GRAPH_MONTH_FORMAT);
+        case ChartUnit.WEEK:
+            return date.format(GRAPH_WEEK_FORMAT);
+        case ChartUnit.DAY:
+            return date.format(GRAPH_DAY_FORMAT);
+        default:
+            return '';
     }
 };

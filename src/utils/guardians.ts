@@ -1,14 +1,7 @@
 import { TFunction } from 'i18next';
 import { ChartData, GuardiansChartDatasets, MenuOption } from '../global/types';
 import { routes } from '../routes/routes';
-import {
-    ChartColors,
-    ChartUnit,
-    ChartYaxis,
-    GuardianActionsTypes,
-    GuardianChartName,
-    GuardiansSections
-} from '../global/enums';
+import { ChartColors, ChartUnit, ChartYaxis, GuardianActionsTypes, GuardiansSections } from '../global/enums';
 import { Guardian, GuardianAction, GuardianInfo, GuardianStake } from '@orbs-network/pos-analytics-lib';
 import { generateDays, generateMonths, generateWeeks } from './dates';
 import { STACK_GRAPH_MONTHS_LIMIT } from '../global/variables';
@@ -48,14 +41,14 @@ export const checkIfLoadDelegator = (address?: string, selectedGuardianAddress?:
 };
 
 const generateDatasets = (dates: Date[]): GuardiansChartDatasets => {
-    const data = fillChartData(dates);
+    const data = fillGuardiansChartData(dates);
     return {
         self_stake: {
             data,
             color: ChartColors.SELF_STAKE,
             yAxis: ChartYaxis.Y2
         },
-        delegated_stake: {
+        total_stake: {
             data: [],
             color: ChartColors.TOTAL_STAKE,
             yAxis: ChartYaxis.Y2
@@ -78,19 +71,19 @@ export const getGuardianChartData = (
     let datasets = generateDatasets(dates);
     stake_slices
         .filter((s) => moment.unix(s.block_time) >= moMinDate)
-        .sort((s1, s2) => (s1.block_time > s2.block_time ? 0 : s1.block_time > s2.block_time ? 1 : -1))
+        .sort((s1, s2) => s1.block_time - s2.block_time)
         .forEach((m) => {
             insertChartDataByType(datasets, m, moment.unix(m.block_time).valueOf());
         });
 
     return {
-        datasets: [datasets.delegated_stake, datasets.n_delegates, datasets.self_stake],
+        datasets: [datasets.total_stake, datasets.n_delegates, datasets.self_stake],
         unit
     };
 };
 
 const insertChartDataByType = (chartData: GuardiansChartDatasets, stake: GuardianStake, date: number): any => {
-    const { self_stake, n_delegates, delegated_stake } = stake;
+    const { self_stake, n_delegates, total_stake } = stake;
     const x = date;
     const selftStake = {
         x,
@@ -102,14 +95,14 @@ const insertChartDataByType = (chartData: GuardiansChartDatasets, stake: Guardia
     };
     const delegatedStake = {
         x,
-        y: delegated_stake
+        y: total_stake
     };
     chartData.self_stake.data.push(selftStake);
     chartData.n_delegates.data.push(delegators);
-    chartData.delegated_stake.data.push(delegatedStake);
+    chartData.total_stake.data.push(delegatedStake);
 };
 
-const fillChartData = (dates: Date[]) => {
+const fillGuardiansChartData = (dates: Date[]) => {
     return dates.map((date) => {
         return {
             x: moment(date).valueOf(),

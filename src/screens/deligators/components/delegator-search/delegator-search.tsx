@@ -2,13 +2,13 @@ import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { RouteParams } from '../../../../global/types';
-import { findDelegatorAction, setDelegatorLoading } from '../../../../redux/actions/actions';
-import { AppState } from '../../../../redux/types/types';
-import { routes } from '../../../../routes/routes';
-import { checkIfLoadDeligator } from '../../../../utils/delegators';
+import { RouteParams } from 'global/types';
+import { findDelegatorAction, setDelegatorLoading } from 'redux/actions/actions';
+import { AppState } from 'redux/types/types';
+import { routes } from 'routes/routes';
+import { checkIfLoadDeligator } from 'utils/delegators';
 import { useClickOutside } from 'react-click-outside-hook';
-import LoupeImg from '../../../../assets/images/loupe.svg';
+import LoupeImg from 'assets/images/loupe.svg';
 
 export const DelegatorSearch = () => {
     const { selectedDelegator, delegatorNotFound } = useSelector((state: AppState) => state.delegator);

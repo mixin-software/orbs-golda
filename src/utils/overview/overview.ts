@@ -1,13 +1,28 @@
 import { Guardian, PosOverview, PosOverviewData, PosOverviewSlice } from '@orbs-network/pos-analytics-lib';
 import { TFunction } from 'i18next';
 import { ChartUnit, OverviewSections } from '../../global/enums';
-import { BarChartDataset, MenuOption, OverviewChartData, OverviewChartObject } from '../../global/types';
+import {
+    BarChartDataset,
+    GuardiansChartDatasetObject,
+    MenuOption,
+    OverviewChartData,
+    OverviewChartObject,
+    OverviewGuardianDataset
+} from '../../global/types';
 import { routes } from '../../routes/routes';
-import { converFromNumberToDate, generateDays, generateMonths, generateWeeks, returnDateNumber } from '../dates';
+import {
+    converFromNumberToDate,
+    generateDays,
+    generateMonths,
+    generateWeeks,
+    getDateFormatByUnit,
+    returnDateNumber
+} from '../dates';
 import { sortByNumber } from '../array';
 import { overviewguardiansColors } from '../../ui/colors';
 import { DATE_FORMAT, OVERVIEW_CHART_LIMIT } from '../../global/variables';
 import moment from 'moment';
+import { yellow } from '@material-ui/core/colors';
 
 export const generateOverviewRoutes = (t: TFunction): MenuOption[] => {
     return [
@@ -24,47 +39,37 @@ export const generateOverviewRoutes = (t: TFunction): MenuOption[] => {
     ];
 };
 
-export const getGuardianColor = (amount: number) => {
-    let arr: string[] = [];
-    let count = 0;
-    const limit = overviewguardiansColors.length - 1;
-    for (let i = 0; i < amount; i++) {
-        const color = overviewguardiansColors[count];
-        arr.push(color);
-        if (count === limit) {
-            count = 0;
-        } else {
-            count += 1;
-        }
-    }
-    return arr;
+export const getGuardianColor = (index: number) => {
+    const colorIndex = index % overviewguardiansColors.length;
+    return overviewguardiansColors[colorIndex];
 };
-const fillChartData = (dates: Date[]) => {
+
+const fillChartData = (dates: Date[], unit: ChartUnit): GuardiansChartDatasetObject[] => {
     return dates.map((date) => {
+        const blockTimeDate = moment(date);
+        const blockTimeByUnit = getDateFormatByUnit(blockTimeDate, unit);
+
         return {
-            x: moment(date).valueOf(),
+            group: blockTimeByUnit,
+            x: moment(date).format(DATE_FORMAT),
             y: null
         };
     });
 };
 
-export const getGuardiansOrder = (
-    guardians: Guardian[],
-    NewestSlice: PosOverviewSlice,
-    propertyName: string,
+export const createGuardianDatasets = (
+    sortedGuardians: PosOverviewData[],
+    dates: Date[],
     unit: ChartUnit,
-    dates?: any
-) => {
-    const { data } = NewestSlice;
-    const sortedGuardians = sortByNumber(data, propertyName);
-    const guardiansObject: any = {};
-    const colors = getGuardianColor(sortedGuardians.length);
-    sortedGuardians.forEach((guardian: BarChartDataset, index: number) => {
+    guardiansColors?: { [id: string]: string }
+): { [id: string]: OverviewGuardianDataset } => {
+    const guardiansObject: { [id: string]: OverviewGuardianDataset } = {};
+    sortedGuardians.forEach((guardian: PosOverviewData, index: number) => {
         const obj = {
             order: index,
-            backgroundColor: colors[index],
+            backgroundColor: guardiansColors ? guardiansColors[guardian.address] : getGuardianColor(index),
             label: guardian.name,
-            data: fillChartData(dates),
+            data: fillChartData(dates, unit),
             maxBarThickness: 30,
             hoverBackgroundColor: undefined
         };
@@ -72,12 +77,6 @@ export const getGuardiansOrder = (
     });
     return guardiansObject;
 };
-
-// export const reorderGuardians = (data: PosOverviewData[], orderObject: any): PosOverviewData[] => {
-//     return data.sort((a: PosOverviewData, b: PosOverviewData) => {
-//         return orderObject[a.address] - orderObject[b.address];
-//     });
-// };
 
 export const fillEmptyData = (orderObject: any, unit: ChartUnit): OverviewChartObject[] => {
     const filledChartData = Object.keys(orderObject).map(function (key, index) {
@@ -96,4 +95,29 @@ export const fillEmptyData = (orderObject: any, unit: ChartUnit): OverviewChartO
         }
     });
     return filledChartData;
+};
+export const getLastSlice = (slices: PosOverviewSlice[]) => {
+    if (!slices || slices.length === 0) return;
+    const sorted = slices.sort((s1, s2) => s2.block_time - s1.block_time);
+    return sorted[0];
+};
+
+export const filledEmptyData = (data: GuardiansChartDatasetObject[]) => {
+    let previousValue = 0;
+    return data
+        .sort((d1, d2) => moment(d1.x, DATE_FORMAT).valueOf() - moment(d2.x, DATE_FORMAT).valueOf())
+        .map((elem) => {
+            const { y } = elem;
+            if (!y || y === 0) {
+                return {
+                    ...elem,
+                    y: previousValue
+                };
+            } else {
+                previousValue = y || previousValue;
+                return {
+                    ...elem
+                };
+            }
+        });
 };

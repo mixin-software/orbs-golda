@@ -1,8 +1,8 @@
 import React from 'react';
-import { routes } from '../../../../../../routes/routes';
-import { convertToString } from '../../../../../../utils/number';
+import { routes } from 'routes/routes';
+import { convertToString } from 'utils/number';
 import { Link } from 'react-router-dom';
-import CopyImg from '../../../../../../assets/images/copy.svg';
+import CopyImg from 'assets/images/copy.svg';
 import { GuardianDelegator } from '@orbs-network/pos-analytics-lib';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';

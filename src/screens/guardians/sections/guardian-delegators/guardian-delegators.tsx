@@ -1,14 +1,14 @@
 import React from 'react';
 import {  GuardianDelegator } from '@orbs-network/pos-analytics-lib';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../../redux/types/types';
-import { NoData } from '../../../../components/no-data/no-data';
+import { AppState } from 'redux/types/types';
+import { NoData } from 'components/no-data/no-data';
 import './guardian-delegators.scss';
 import { GuardianDelegatorElement } from './components/guardian-delegator/guardian-delegator';
 import { useTranslation } from 'react-i18next';
-import { LoadingComponent } from '../../../../components/loading-component/loading-component';
-import { ListMaterial } from '../../../../components/list/list-material';
-import { LoaderType } from '../../../../global/enums';
+import { LoadingComponent } from 'components/loading-component/loading-component';
+import { ListMaterial } from 'components/list/list-material';
+import { LoaderType } from 'global/enums';
 
 export const GuardianDelegators = () => {
     const { selectedGuardian, guardianIsLoading } = useSelector((state: AppState) => state.guardians);

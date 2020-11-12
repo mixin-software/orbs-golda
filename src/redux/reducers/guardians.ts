@@ -6,7 +6,8 @@ const initialState: GuardiansState = {
     guardians: undefined,
     guardianNotFound: false,
     guardianIsLoading: true,
-    guardianChartData: undefined
+    guardianChartData: undefined,
+    guardiansColors: undefined
 };
 
 export const guardiansReducer = (state = initialState, { payload, type }: any): GuardiansState => {
@@ -17,9 +18,11 @@ export const guardiansReducer = (state = initialState, { payload, type }: any): 
                 selectedGuardian: payload
             };
         case types.GUARDIAN.SET_GUARDIANS:
+            const { guardiansColors, guardians } = payload;
             return {
                 ...state,
-                guardians: payload
+                guardians,
+                guardiansColors
             };
         case types.GUARDIAN.GUARDIAN_NOT_FOUND:
             return {

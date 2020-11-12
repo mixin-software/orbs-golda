@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../../redux/types/types';
-import { convertToString } from '../../../../utils/number';
-import TotalStakeImg from '../../../../assets/images/cpu.svg';
-import GuardiansImg from '../../../../assets/images/encrypted.svg';
+import { AppState } from 'redux/types/types';
+import { convertToString } from 'utils/number';
+import TotalStakeImg from 'assets/images/cpu.svg';
+import GuardiansImg from 'assets/images/encrypted.svg';
 import { useTranslation } from 'react-i18next';
-import { LoadingComponent } from '../../../../components/loading-component/loading-component';
-import { LoaderType } from '../../../../global/enums';
-import { OVERVIEW_STATUS_LINK } from '../../../../global/variables';
-import StellarImg from '../../../../assets/images/stellar.svg';
+import { LoadingComponent } from 'components/loading-component/loading-component';
+import { LoaderType } from 'global/enums';
+import { OVERVIEW_STATUS_LINK } from 'global/variables';
+import StellarImg from 'assets/images/stellar.svg';
 import './overview-top.scss';
 
 interface StateProps {

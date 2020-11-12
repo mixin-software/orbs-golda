@@ -1,14 +1,14 @@
 import { DelegatorAction } from '@orbs-network/pos-analytics-lib';
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { routes } from '../../../../../routes/routes';
-import { generateDelegatorsActionColors, generateDelegatorsCurrentStake } from '../../../../../utils/delegators';
-import LinkIcon from '../../../../../assets/images/copy.svg';
-import { convertToString } from '../../../../../utils/number';
-import { ETHERSCAN_BLOCK_ADDRESS } from '../../../../../keys/keys';
+import { routes } from 'routes/routes';
+import { generateDelegatorsActionColors, generateDelegatorsCurrentStake } from 'utils/delegators';
+import LinkIcon from 'assets/images/copy.svg';
+import { convertToString } from 'utils/number';
+import { ETHERSCAN_BLOCK_ADDRESS } from 'keys/keys';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
-import { DelegatorActionsTypes } from '../../../../../global/enums';
+import { DelegatorActionsTypes } from 'global/enums';
 import { TableCell, TableRow } from '@material-ui/core';
 
 interface StateProps {

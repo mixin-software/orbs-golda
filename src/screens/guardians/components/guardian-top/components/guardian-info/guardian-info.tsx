@@ -1,23 +1,25 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { LoadingComponent } from '../../../../../../components/loading-component/loading-component';
-import { LoaderType } from '../../../../../../global/enums';
-import { AppState } from '../../../../../../redux/types/types';
-import LinkImg from '../../../../../../assets/images/copy.svg';
+import { LoadingComponent } from 'components/loading-component/loading-component';
+import { LoaderType } from 'global/enums';
+import { AppState } from 'redux/types/types';
+import LinkImg from 'assets/images/copy.svg';
 import './guardian-info.scss';
 
 export const GuardianInfo = () => {
     const { selectedGuardian, guardianIsLoading } = useSelector((state: AppState) => state.guardians);
     const { t } = useTranslation();
-    
-    const website = selectedGuardian?.details.website
-    const detailsUrl = selectedGuardian?.details.details_URL
-    const ip = selectedGuardian?.details.ip
-    const nodeAddress = selectedGuardian?.details.node_address
-     return (
+
+    const website = selectedGuardian?.details.website;
+    const detailsUrl = selectedGuardian?.details.details_URL;
+    const ip = selectedGuardian?.details.ip;
+    const nodeAddress = selectedGuardian?.details.node_address;
+    return (
         <div className="guardian-info flex-start">
-           <div className='guardian-info-container'>
+          
+
+             <div className='guardian-info-container'>
            <section>
                 <h5 className="guardian-info-title">{t('guardians.guardianWebsite')}</h5>
                 <LoadingComponent isLoading={guardianIsLoading} loaderType={LoaderType.TEXT}>
@@ -30,7 +32,7 @@ export const GuardianInfo = () => {
                 <h5 className="guardian-info-title">{t('guardians.guardianDetailsUrl')}</h5>
                 <LoadingComponent isLoading={guardianIsLoading} loaderType={LoaderType.TEXT}>
                     {detailsUrl ? (
-                        <a href="http://" target="_blank" rel="noopener noreferrer">
+                        <a href={detailsUrl} target="_blank" rel="noopener noreferrer">
                             <p>{detailsUrl}</p>
                         </a>
                     ) : (
@@ -55,7 +57,7 @@ export const GuardianInfo = () => {
                     </div> : <p>-</p>}
                 </LoadingComponent>
             </section>
-          </div>
+          </div> 
         </div>
     );
 };

@@ -1,9 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { LoadingComponent } from '../../../../../../components/loading-component/loading-component';
-import { ChartColors, LoaderType } from '../../../../../../global/enums';
-import { AppState } from '../../../../../../redux/types/types';
+import { LoadingComponent } from 'components/loading-component/loading-component';
+import { ChartColors, LoaderType } from 'global/enums';
+import { AppState } from 'redux/types/types';
 
 import './guardian-stake-legend.scss';
 

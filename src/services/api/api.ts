@@ -7,31 +7,26 @@ class Api {
     nodeEndpoints = ['https://guardian.v2beta.orbs.com/services/management-service/status'];
     async getDelegatorApi(address: string) {
         try {
-            // const res = await getDelegator(address, this.ethereumEndpoint);
-            const res = require('../../data/delegator-full.json');
+            const res = await getDelegator(address, this.ethereumEndpoint);
             return res;
         } catch (error) {
-            console.log(error);
             return undefined;
         }
     }
 
     async getGuardianApi(address: string) {
         try {
-            // const res = await getGuardian(address, this.ethereumEndpoint);
-            const res = require('../../data/guardian-full.json');
+            const res = await getGuardian(address, this.ethereumEndpoint);
             return res;
         } catch (error) {
-            console.log(error);
             return undefined;
         }
     }
 
     async getGuardiansApi() {
         try {
-            // const res = await getGuardians(this.nodeEndpoints);
-            const res = require('../../data/guardians.json');
-            console.log(res);
+            const res = await getGuardians(this.nodeEndpoints);
+
             return res;
         } catch (error) {
             return null;
@@ -40,7 +35,6 @@ class Api {
     async getOverviewApi() {
         try {
             const res = await getOverview(this.nodeEndpoints, this.ethereumEndpoint);
-            // const res = require('../../data/overview.json');
             return res;
         } catch (error) {
             return null;

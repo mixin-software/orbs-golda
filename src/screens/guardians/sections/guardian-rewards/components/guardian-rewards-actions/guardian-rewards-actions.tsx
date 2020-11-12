@@ -1,16 +1,15 @@
 import { DelegatorAction, DelegatorReward, GuardianAction, GuardianDelegator } from '@orbs-network/pos-analytics-lib';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { NoData } from '../../../../../../components/no-data/no-data';
-import { AppState } from '../../../../../../redux/types/types';
+import { AppState } from 'redux/types/types';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 import { GuardianRewardAction } from './guardian-reward-action';
 import './guardian-rewards-actions.scss';
-import { getGuardiansRewardActions } from '../../../../../../utils/guardians';
-import { ListMaterial } from '../../../../../../components/list/list-material';
-import { LoadingComponent } from '../../../../../../components/loading-component/loading-component';
-import { LoaderType } from '../../../../../../global/enums';
+import { getGuardiansRewardActions } from 'utils/guardians';
+import { ListMaterial } from 'components/list/list-material';
+import { LoadingComponent } from 'components/loading-component/loading-component';
+import { LoaderType } from 'global/enums';
 
 export const GuardianRewardsActions = () => {
     const { selectedGuardian, guardianIsLoading } = useSelector((state: AppState) => state.guardians);

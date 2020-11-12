@@ -1,14 +1,14 @@
 import { DelegatorAction, DelegatorReward, GuardianAction } from '@orbs-network/pos-analytics-lib';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../../../../redux/types/types';
+import { AppState } from 'redux/types/types';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
 import { DelegatorRewardAction } from './components/delegator-reward-actions/delegator-reward-action';
-import { getDelegatorRewardActions } from '../../../../../../utils/delegators';
-import { LoadingComponent } from '../../../../../../components/loading-component/loading-component';
-import { ListMaterial } from '../../../../../../components/list/list-material';
-import { LoaderType } from '../../../../../../global/enums';
+import { getDelegatorRewardActions } from 'utils/delegators';
+import { LoadingComponent } from 'components/loading-component/loading-component';
+import { ListMaterial } from 'components/list/list-material';
+import { LoaderType } from 'global/enums';
 import './delegator-rewards-actions.scss';
 
 export const DelegatorRewardsActions = () => {

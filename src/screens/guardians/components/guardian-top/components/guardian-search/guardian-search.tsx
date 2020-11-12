@@ -6,11 +6,10 @@ import { useClickOutside } from 'react-click-outside-hook';
 import CloseRoundedIcon from '@material-ui/icons/CloseRounded';
 import SearchRoundedIcon from '@material-ui/icons/SearchRounded';
 import { GuardiansResults } from './guardians-results';
-import { RouteParams } from '../../../../../../global/types';
-import { setGuardianLoading, getGuardianAction } from '../../../../../../redux/actions/actions';
-import { AppState } from '../../../../../../redux/types/types';
-import { routes } from '../../../../../../routes/routes';
-import { getGuardianName, checkIfLoadDelegator, getGuardianByAddress } from '../../../../../../utils/guardians';
+import { setGuardianLoading, getGuardianAction } from 'redux/actions/actions';
+import { AppState } from 'redux/types/types';
+import { routes } from 'routes/routes';
+import { getGuardianName, checkIfLoadDelegator, getGuardianByAddress } from 'utils/guardians';
 import './guardian-search.scss';
 
 interface StateProps {
@@ -18,9 +17,8 @@ interface StateProps {
     section: string;
 }
 
-export const GuardianSearch = ({address, section}:StateProps ) => {
+export const GuardianSearch = ({ address, section }: StateProps) => {
     const { guardians, selectedGuardian } = useSelector((state: AppState) => state.guardians);
-  
 
     const dispatch = useDispatch();
     const history: any = useHistory();
@@ -28,18 +26,15 @@ export const GuardianSearch = ({address, section}:StateProps ) => {
     const [ref, hasClickedOutside] = useClickOutside();
     const [inputValue, setInputValue] = useState<string>('');
     const [showResults, setShowResults] = useState<boolean>(false);
-    
-    
+
     useEffect(() => {
         searchGuardianByAddress(address);
-        setGuardianNameAsValue(address || selectedGuardian?.address)
+        setGuardianNameAsValue(address || selectedGuardian?.address);
     }, []);
 
- 
     useEffect(() => {
         setGuardianNameAsValue(address);
     }, [guardians && guardians.length]);
-
 
     useEffect(() => {
         if (hasClickedOutside) {

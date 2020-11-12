@@ -2,14 +2,14 @@ import { GuardianAction } from '@orbs-network/pos-analytics-lib';
 import React from 'react';
 import moment from 'moment';
 import { useTranslation } from 'react-i18next';
-import { ETHERSCAN_BLOCK_ADDRESS } from '../../../../keys/keys';
-import { convertToString } from '../../../../utils/number';
+import { ETHERSCAN_BLOCK_ADDRESS } from 'keys/keys';
+import { convertToString } from 'utils/number';
 import {
     generateGuardiansActionColors,
     generateGuardiansActionIcon,
     generateGuardiansCurrentStake
-} from '../../../../utils/guardians';
-import { GuardianActionsTypes } from '../../../../global/enums';
+} from 'utils/guardians';
+import { GuardianActionsTypes } from 'global/enums';
 import TableCell from '@material-ui/core/TableCell';
 import TableRow from '@material-ui/core/TableRow';
 interface StateProps {

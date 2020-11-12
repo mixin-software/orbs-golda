@@ -3,8 +3,8 @@ import { DelegatorAction } from '@orbs-network/pos-analytics-lib';
 import moment from 'moment';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ETHERSCAN_BLOCK_ADDRESS } from '../../../../../../../../keys/keys';
-import { convertToString } from '../../../../../../../../utils/number';
+import { ETHERSCAN_BLOCK_ADDRESS } from 'keys/keys';
+import { convertToString } from 'utils/number';
 
 interface StateProps {
     action: DelegatorAction;

@@ -7,4 +7,5 @@ export interface GuardiansState {
     guardianNotFound: boolean;
     guardianIsLoading: boolean;
     guardianChartData?: ChartData;
+    guardiansColors?: { [id: string]: string };
 }

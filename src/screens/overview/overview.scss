@@ -21,13 +21,17 @@
 
 .overview-chart {
     height: 100%;
-        width: calc(100% - 350px);
-        height: 100%;
-        header{
-            margin-bottom: 50px;
-        }
-        .bar-chart{
-            height: 300px;
-        }
-    
+    width: calc(100% - 350px);
+
+    header {
+        margin-bottom: 50px;
+    }
+
+    .bar-chart {
+        height: 330px;
+    }
+
+    h4 {
+        font-weight: 600;
+    }
 }

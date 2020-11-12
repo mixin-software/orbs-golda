@@ -10,5 +10,6 @@ export const overviewguardiansColors = [
     '#FFEC2A',
     '#B9770B',
     '#00187C',
-    '#FBCBFF'
+    '#FBCBFF',
+    '#6BBA70'
 ];

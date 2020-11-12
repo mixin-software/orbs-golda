@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import { useTranslation } from 'react-i18next';
-import { ChartColors } from '../../../../../../global/enums';
-import { ChartData } from '../../../../../../global/types';
-import { generateDatasets, getGuardiansLineChartSettings } from '../../../../../../utils/chart';
+import { ChartColors } from 'global/enums';
+import { ChartData } from 'global/types';
+import { generateDatasets, getGuardiansLineChartSettings } from 'utils/chart';
 
 interface StateProps {
     chartData: ChartData;

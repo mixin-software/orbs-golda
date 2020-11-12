@@ -1,9 +1,10 @@
 import { PosOverview, PosOverviewSlice, PosOverviewData, Guardian } from '@orbs-network/pos-analytics-lib';
+import { OverviewGuardianDataset, GuardiansChartDatasetObject } from 'global/types';
+import moment from 'moment';
 import { ChartUnit } from '../../global/enums';
 import { DATE_FORMAT, OVERVIEW_CHART_LIMIT } from '../../global/variables';
-import { sortByNumber } from '../array';
-import { returnDateNumber, converFromNumberToDate, generateMonths, generateWeeks, generateDays } from '../dates';
-import { getGuardiansOrder } from './overview';
+import { generateWeeks, generateDays, getDateFormatByUnit } from '../dates';
+import { createGuardianDatasets, filledEmptyData, getLastSlice } from './overview';
 
 export const generateDataset = (arr: any) => {
     const result = Object.keys(arr).map((key) => {
@@ -11,84 +12,101 @@ export const generateDataset = (arr: any) => {
     });
     return result;
 };
-const getNewestSlice = (slices: PosOverviewSlice[]) => {
-    const sorted = sortByNumber(slices, 'block_time');
-    const NewestSlice: PosOverviewSlice = sorted[0];
-    return NewestSlice;
+
+const calculateTotalWeight = (data: PosOverviewData[]) => {
+    return data
+        .map((m) => m.weight)
+        .reduce(function (total, g1) {
+            return total + g1;
+        }, 0);
 };
 
-const filledEmptyData = (data: any) => {
-    let previousEffectiveStake = 0;
-    return data.map((elem: any) => {
-        const { y } = elem;
-        if (y === 0) {
-            return {
-                ...elem,
-                y: previousEffectiveStake
-            };
-        } else {
-            previousEffectiveStake = y;
-            return {
-                ...elem
-            };
-        }
-    });
-};
+const insertGuardiansByDate = (
+    slices: PosOverviewSlice[],
+    unit: ChartUnit,
+    dates: Date[],
+    guardianDatasets: { [id: string]: OverviewGuardianDataset }
+) => {
+    const latestSlices = dates
+        .map((d) => {
+            let mDate = moment(d);
+            let slicesForDate = slices.filter(({ block_time }: PosOverviewSlice) => {
+                const blockTimeDate = moment.unix(block_time);
+                return mDate.format(DATE_FORMAT) === blockTimeDate.format(DATE_FORMAT);
+            });
 
-const insertGuardiansByDate = (slices: PosOverviewSlice[], unit: ChartUnit, dates: any, order: any) => {
-    const datesInUse: any = [];
-    slices.forEach(({ block_time, data, total_weight }: PosOverviewSlice) => {
-        const sliceDate = returnDateNumber(block_time, unit);
-        if (!sliceDate) return;
-        if (!dates.hasOwnProperty(sliceDate)) return;
-        if (datesInUse.includes(sliceDate)) return;
-        datesInUse.push(sliceDate);
-        const dateInString = converFromNumberToDate(sliceDate, unit, DATE_FORMAT);
-        data.forEach(({ address, weight }: PosOverviewData, i: number) => {
-            const percent = (weight / total_weight) * 100;
+            return slicesForDate[slicesForDate.length - 1];
+        })
+        .filter((s) => s && s.block_time);
 
-            const guardianObject = {
-                x: dateInString,
+    latestSlices.forEach(({ block_time, data }: PosOverviewSlice) => {
+        const blockTimeDate = moment.unix(block_time);
+        const blockTimeByUnit = getDateFormatByUnit(blockTimeDate, unit);
+        const totalWeight = calculateTotalWeight(data);
+
+        data.forEach(({ address, weight }: PosOverviewData) => {
+            const percent = (weight / totalWeight) * 100;
+            const currDataset = guardianDatasets[address];
+            const index = currDataset.data.findIndex((i) => {
+                return blockTimeDate.format(DATE_FORMAT) === i.x;
+            });
+
+            if (index < 0) return;
+            const point: GuardiansChartDatasetObject = {
+                group: blockTimeByUnit,
+                x: blockTimeDate.format(DATE_FORMAT),
                 y: percent
             };
-            const index = order[address].data.findIndex((i: any) => i.x === dateInString);
-            if (index < 0) return;
-            order[address].data.splice(index, 1, guardianObject);
-            order[address].data = filledEmptyData(order[address].data);
+            currDataset.data.splice(index, 1, point);
+            currDataset.data = filledEmptyData(currDataset.data);
         });
     });
-    return order;
+
+    return guardianDatasets;
 };
 
-export const getOverviewChartData = (guardians: Guardian[], dates: any, unit: ChartUnit, overviewData: PosOverview) => {
-    const { slices } = overviewData;
-    const NewestSlice = getNewestSlice(slices);
-    let order = getGuardiansOrder(guardians, NewestSlice, 'weight', unit, dates);
-    order = insertGuardiansByDate(slices, unit, dates, order);
+export const getOverviewChartData = (
+    minDate: Date,
+    dates: any,
+    unit: ChartUnit,
+    { slices }: PosOverview,
+    guardiansColors?: { [id: string]: string }
+) => {
+    const moMinDate = moment(minDate);
+    const filteredSlices = slices.filter((s) => moment.unix(s.block_time) >= moMinDate);
+    const lastSlice = getLastSlice(filteredSlices);
+    if (!lastSlice) return;
+    const sortedGuardians = lastSlice.data.sort((s1, s2) => s2.weight - s1.weight);
+    let guardianDatasets = createGuardianDatasets(sortedGuardians, dates, unit, guardiansColors);
+    insertGuardiansByDate(filteredSlices, unit, dates, guardianDatasets);
     const obj = {
-        data: generateDataset(order),
-        unit
+        data: generateDataset(guardianDatasets),
+        unit,
+        guardianDatasets
     };
     return obj;
 };
-export const getWeightsChartData = (guardians: Guardian[], type: ChartUnit, overviewData?: PosOverview) => {
+export const getWeightsChartData = (
+    unit: ChartUnit,
+    overviewData?: PosOverview,
+    guardiansColors?: { [id: string]: string }
+): any => {
     if (!overviewData) return;
-    let data;
-    switch (type) {
-        case ChartUnit.MONTH:
-            const months = generateMonths(OVERVIEW_CHART_LIMIT);
-            data = getOverviewChartData(guardians, months, ChartUnit.MONTH, overviewData);
-            break;
+    let dates, minDate;
+    switch (unit) {
         case ChartUnit.WEEK:
-            const weeks = generateWeeks(OVERVIEW_CHART_LIMIT);
-            data = getOverviewChartData(guardians, weeks, ChartUnit.WEEK, overviewData);
+            minDate = moment().subtract(OVERVIEW_CHART_LIMIT, 'weeks');
+            dates = generateWeeks(OVERVIEW_CHART_LIMIT);
             break;
         case ChartUnit.DAY:
-            const days = generateDays(OVERVIEW_CHART_LIMIT);
-            data = getOverviewChartData(guardians, days, ChartUnit.DAY, overviewData);
+            minDate = moment().subtract(OVERVIEW_CHART_LIMIT, 'days');
+            dates = generateDays(OVERVIEW_CHART_LIMIT);
             break;
         default:
+            minDate = moment().subtract(OVERVIEW_CHART_LIMIT, 'week');
+            dates = generateWeeks(OVERVIEW_CHART_LIMIT);
             break;
     }
-    return data;
+    if (!dates) return;
+    return getOverviewChartData(minDate.toDate(), dates, unit, overviewData, guardiansColors);
 };

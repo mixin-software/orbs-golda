@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { SupportedLanguage } from '../../../../global/types';
-import { api } from '../../../../services/api';
-import { flags } from '../../../../ui/country-flags';
-import Logo from '../../../../assets/images/logo orbs.svg';
+import { SupportedLanguage } from 'global/types';
+import { api } from 'services/api';
+import { flags } from 'ui/country-flags';
+import Logo from 'assets/images/logo orbs.svg';
 
 export const Languages = () => {
     const { i18n } = useTranslation();

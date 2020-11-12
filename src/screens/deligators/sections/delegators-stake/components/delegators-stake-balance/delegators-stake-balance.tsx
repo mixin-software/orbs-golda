@@ -1,16 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { LoadingComponent } from '../../../../../../components/loading-component/loading-component';
-import { LoaderType } from '../../../../../../global/enums';
-import { AppState } from '../../../../../../redux/types/types';
-import { getGuardianByAddress } from '../../../../../../utils/guardians';
-import { convertToString } from '../../../../../../utils/number';
-import { routeToGuardian } from '../../../../../../utils/routing';
+import { LoadingComponent } from 'components/loading-component/loading-component';
+import { LoaderType } from 'global/enums';
+import { AppState } from 'redux/types/types';
+import { getGuardianByAddress } from 'utils/guardians';
+import { convertToString } from 'utils/number';
+import { routeToGuardian } from 'utils/routing';
 import { useTranslation } from 'react-i18next';
 import './delegators-stake-balance.scss';
-import { BalanceSection } from '../../../../../../components/balance-section/balance-section';
-import { NoData } from '../../../../../../components/no-data/no-data';
+import { BalanceSection } from 'components/balance-section/balance-section';
+import { NoData } from 'components/no-data/no-data';
 
 
 export const DelegatorsStakeBalance = () => {

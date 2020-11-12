@@ -1,13 +1,13 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../../../../redux/types/types';
-import Logo from '../../../../../../assets/images/token.png';
-import { Reward } from '../../../../../../components/reward/reward';
-import { NoData } from '../../../../../../components/no-data/no-data';
-import TrophyImg from '../../../../../../assets/images/trophy.svg';
+import { AppState } from 'redux/types/types';
+import Logo from 'assets/images/token.png';
+import { Reward } from 'components/reward/reward';
+import { NoData } from 'components/no-data/no-data';
+import TrophyImg from 'assets/images/trophy.svg';
 import './delegator-rewards-top.scss';
-import { ListMaterial } from '../../../../../../components/list/list-material';
+import { ListMaterial } from 'components/list/list-material';
 
 export const DelegatorRewardsTop = () => {
     const { selectedDelegator, delegatorIsLoading } = useSelector((state: AppState) => state.delegator);

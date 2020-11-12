@@ -9,6 +9,8 @@ import { OverviewWeights } from './sections/overview-weights/overview-weights';
 import { useDispatch, useSelector } from 'react-redux';
 import { AppState } from 'redux/types/types';
 import { getOverviewAction } from 'redux/actions/actions';
+import { LoadingComponent } from 'components/loading-component/loading-component';
+import { LoaderType } from 'global/enums';
 import './overview.scss';
 
 export const Overview = () => {
@@ -21,21 +23,22 @@ export const Overview = () => {
     }, []);
 
     return (
-        overviewData ?  <div className="overview screen">
+        <div className="overview screen">
             <OverviewTop />
             <div className="screen-section">
                 <OverviewSectionSelector />
                 <div className="screen-section-container">
-                    <div className="overview-flex flex-start-center">
-                        <Route path={routes.overview.stake} render={() => <OverviewStake />} />
-                        <Route path={routes.overview.weights} render={() => <OverviewWeights />} />
-                        <Route exact path={routes.overview.default}>
-                            <Redirect to={routes.overview.stake} />
-                        </Route>
-                        <OverviewStakeGuadians />
-                    </div>
+                    <LoadingComponent isLoading={!overviewData} loaderType={LoaderType.BIG}>
+                        <div className="overview-flex flex-start-center">
+                            <Route path={routes.overview.stake} render={() => <OverviewStake />} />
+                            <Route path={routes.overview.weights} render={() => <OverviewWeights />} />
+                            <Route exact path={routes.overview.default}>
+                                <Redirect to={routes.overview.stake} />
+                            </Route>
+                        </div>
+                    </LoadingComponent>
                 </div>
             </div>
-        </div> : null
+        </div>
     );
 };

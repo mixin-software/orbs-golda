@@ -1,6 +1,6 @@
 import { Guardian } from '@orbs-network/pos-analytics-lib';
 import React from 'react';
-import { filterGuardians } from '../../../../../../utils/guardians';
+import { filterGuardians } from 'utils/guardians';
 
 interface StateProps {
     guardians?: Guardian[],

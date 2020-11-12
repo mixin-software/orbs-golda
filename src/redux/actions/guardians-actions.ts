@@ -1,3 +1,5 @@
+import { Guardian } from '@orbs-network/pos-analytics-lib';
+import { getGuardianColor } from 'utils/overview/overview';
 import { ChartData } from '../../global/types';
 import { api } from '../../services/api';
 import { types } from '../types/types';
@@ -18,9 +20,15 @@ export const getGuardianAction = (address: string) => async (dispatch: any) => {
 export const getGuardiansAction = () => async (dispatch: any) => {
     const guardians = await api.getGuardiansApi();
     if (!guardians) return null;
+    const guardiansColors: { [id: string]: string } = {};
+    guardians
+        .sort((a, b) => b.effective_stake - a.effective_stake)
+        .forEach((guardian: Guardian, index: number) => {
+            guardiansColors[guardian.address] = getGuardianColor(index);
+        });
     return dispatch({
         type: types.GUARDIAN.SET_GUARDIANS,
-        payload: guardians
+        payload: { guardians, guardiansColors }
     });
 };
 

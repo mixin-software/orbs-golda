@@ -1,5 +1,5 @@
 import React from 'react'
-import { RouteParams } from '../../../../global/types';
+import { RouteParams } from 'global/types';
 import { GuardianInfo } from './components/guardian-info/guardian-info';
 import { GuardianSearch } from './components/guardian-search/guardian-search'
 import './guardian-top.scss';

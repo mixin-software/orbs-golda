@@ -1,15 +1,15 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import { AppState } from '../../../../../../redux/types/types';
-import { Reward } from '../../../../../../components/reward/reward';
-import { NoData } from '../../../../../../components/no-data/no-data';
-import TrophyImg from '../../../../../../assets/images/trophy.svg';
-import CommitteeImg from '../../../../../../assets/images/voting-booth.svg';
-import FeesImg from '../../../../../../assets/images/coins.svg';
-import OrbsToken from '../../../../../../assets/images/token.png';
-import BoostrapToken from '../../../../../../assets/images/bootstrap-token.png';
-import { ListMaterial } from '../../../../../../components/list/list-material';
+import { AppState } from 'redux/types/types';
+import { Reward } from 'components/reward/reward';
+import { NoData } from 'components/no-data/no-data';
+import TrophyImg from 'assets/images/trophy.svg';
+import CommitteeImg from 'assets/images/voting-booth.svg';
+import FeesImg from 'assets/images/coins.svg';
+import OrbsToken from 'assets/images/token.png';
+import BoostrapToken from 'assets/images/bootstrap-token.png';
+import { ListMaterial } from 'components/list/list-material';
 import './guardian-rewards-top.scss';
 
 export const GuardianRewardsTop = () => {
